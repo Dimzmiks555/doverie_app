@@ -17,10 +17,6 @@ import useScript from '../hooks/useScript.js';
 export default function Home() {
 
 
-	if (typeof window != 'undefined') {
-		document.body.classList.add('maxw1600')
-		document.body.classList.add('m0a')
-	}
 
   useScript('/js/jquery-3.3.1.js');
   useScript('/js/jquery-migrate-3.0.0.min.js');

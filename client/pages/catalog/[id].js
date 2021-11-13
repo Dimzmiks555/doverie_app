@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import CategoriesWidget from '../../components/CategoriesWidget/index.js';
 import DarkFooter from '../../components/DarkFooter/index.js';
 import Footer from '../../components/Footer/index.js';
@@ -11,7 +12,13 @@ export default function CatalogVariant() {
 
     const router = useRouter();
 
-
+    useEffect(() => {
+        console.log('fail')
+      if (typeof window != 'undefined') {
+          document.body.classList.remove('maxw1600')
+          document.body.classList.remove('m0a')
+      }
+    }, [])
 
 
   useScript('/js/jquery-3.3.1.js');
@@ -314,10 +321,7 @@ export default function CatalogVariant() {
                                 <h2>1 300 000 ₽</h2>
                             </div>
                             <div class="spss style2 mt20 text-right tal-400">
-                                <ul class="mb0">
-                                    <li class="list-inline-item"><a href="#"><span class="flaticon-share"></span></a></li>
-                                    <li class="list-inline-item"><a href="#"><span class="flaticon-printer"></span></a></li>
-                                </ul>
+                                <button type="button" style={{background: 'rgb(255, 90, 95)', color: '#fff', minWidth: 160}} class="btn dbxshad btn-lg btn-thm circle">Позвонить</button>
                             </div>
                         </div>
                     </div>
