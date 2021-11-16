@@ -21,45 +21,9 @@ const CreateObject = () => (
       }}
     >
       <Container maxWidth={false}>
-        <Box
-        sx={{
-            alignItems: 'center',
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            m: -1
-        }}
-        >
-            <Typography
-                sx={{ m: 1 }}
-                variant="h4"
-            >
-                Создание объекта
-            </Typography>
-            <Box sx={{ m: 1 }}>
-                {/* <Button
-                startIcon={(<UploadIcon fontSize="small" />)}
-                sx={{ mr: 1 }}
-                >
-                Import
-                </Button>
-                <Button
-                startIcon={(<DownloadIcon fontSize="small" />)}
-                sx={{ mr: 1 }}
-                >
-                Export
-                </Button> */}
-                <Button
-                color="primary"
-                variant="contained"
-                >
-                Сохранить
-                </Button>
-            </Box>
-        </Box>
-        <Box sx={{ mt: 3 }}>
-            <CreateObjectMain/>
-        </Box>
+        
+          <CreateObjectMain/>
+
       </Container>
     </Box>
   </>

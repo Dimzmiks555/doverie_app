@@ -24,7 +24,7 @@ const Dashboard = () => (
         py: 8
       }}
     >
-      <Container maxWidth={false}>
+      {/* <Container maxWidth={false}>
         <Grid
           container
           spacing={3}
@@ -102,7 +102,7 @@ const Dashboard = () => (
             <LatestOrders />
           </Grid>
         </Grid>
-      </Container>
+      </Container> */}
     </Box>
   </>
 );

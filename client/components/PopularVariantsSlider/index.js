@@ -2,20 +2,20 @@ import VariantCard from "../VariantCard";
 
 export default function PopularVariantsSlider() {
     return (
-        <section id="feature-property" class="feature-property mt80 pb50">
-            <div class="container-fluid ovh">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="main-title mb40">
+        <section id="feature-property" className="feature-property mt80 pb50">
+            <div className="container-fluid ovh">
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="main-title mb40">
                             <h2>Лучшие варианты</h2>
-                            <p>Подобранные нами варианты. <a class="float-right" href="#">Посмотреть всё <span class="flaticon-next"></span></a></p>
+                            <p>Подобранные нами варианты. <a className="float-right" href="#">Посмотреть всё <span className="flaticon-next"></span></a></p>
                         </div>
                     </div>
-                    <div class="col-lg-12">
-                        <div class="feature_property_home3_slider">
+                    <div className="col-lg-12">
+                        <div className="feature_property_home3_slider">
                             {
                                 [0,1,2,3,4,5,6,7,8,9].map(item => (
-                                    <div class="item" >
+                                    <div className="item" >
                                         <VariantCard disableArrows id={item}/>
                                     </div>
                                 ))

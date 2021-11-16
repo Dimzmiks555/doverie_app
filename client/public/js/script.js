@@ -13,27 +13,27 @@
     }
 
     /* ----- Navbar Scroll To Fixed ----- */
-    function navbarScrollfixed() {
-        $('.navbar-scrolltofixed').scrollToFixed();
-        var summaries = $('.summary');
-        summaries.each(function(i) {
-            var summary = $(summaries[i]);
-            var next = summaries[i + 1];
-            summary.scrollToFixed({
-                marginTop: $('.navbar-scrolltofixed').outerHeight(true) + 10,
-                limit: function() {
-                    var limit = 0;
-                    if (next) {
-                        limit = $(next).offset().top - $(this).outerHeight(true) - 10;
-                    } else {
-                        limit = $('.footer').offset().top - $(this).outerHeight(true) - 10;
-                    }
-                    return limit;
-                },
-                zIndex: 999
-            });
-        });
-    }
+    // function navbarScrollfixed() {
+    //     $('.navbar-scrolltofixed').scrollToFixed();
+    //     var summaries = $('.summary');
+    //     summaries.each(function(i) {
+    //         var summary = $(summaries[i]);
+    //         var next = summaries[i + 1];
+    //         summary.scrollToFixed({
+    //             marginTop: $('.navbar-scrolltofixed').outerHeight(true) + 10,
+    //             limit: function() {
+    //                 var limit = 0;
+    //                 if (next) {
+    //                     limit = $(next).offset().top - $(this).outerHeight(true) - 10;
+    //                 } else {
+    //                     limit = $('.footer').offset().top - $(this).outerHeight(true) - 10;
+    //                 }
+    //                 return limit;
+    //             },
+    //             zIndex: 999
+    //         });
+    //     });
+    // }
 
     /** Main Menu Custom Script Start **/
     $(document).on('ready', function() {
@@ -158,9 +158,9 @@
     }
 
     /* ----- Mobile Nav ----- */
-    $(function() {
-        $('nav#menu').mmenu();
-    });
+    // $(function() {
+    //     $('nav#menu').mmenu();
+    // });
 
     /* ----- Candidate SIngle Page Price Slider ----- */
     $(function() {
@@ -999,7 +999,7 @@
    ====== */
     $(document).on('ready', function() {
         // add your functions
-        navbarScrollfixed();
+        // navbarScrollfixed();
         scrollToTop();
         wowAnimation();
         mobileNavToggle();

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router'
 import { Box, Button, Container, Typography } from '@mui/material';
 import { CustomerListResults } from '../../components/customer/customer-list-results';
 import { CustomerListToolbar } from '../../components/customer/customer-list-toolbar';
@@ -7,68 +8,51 @@ import { customers } from '../../__mocks__/customers';
 import { CreateObjectMain } from 'src/components/object/create-object';
 import { ObjectPreview } from 'src/components/object/object-preview';
 
-const ObjectOne = () => (
-  <>
-    <Head>
-      <title>
-        Создание объекта | Доверие
-      </title>
-    </Head>
-    <Box
-      component="main"
-      sx={{
-        flexGrow: 1,
-        py: 8
-      }}
-    >
-      <Container maxWidth={false}>
-        <Box
+
+
+const ObjectOne = ({data}) => {
+  
+
+
+  return (
+      <>
+      <Head>
+        <title>
+          Создание объекта | Доверие
+        </title>
+      </Head>
+      <Box
+        component="main"
         sx={{
-            alignItems: 'center',
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            m: -1
+          flexGrow: 1,
+          py: 8
         }}
-        >
-            <Typography
-                sx={{ m: 1 }}
-                variant="h4"
-            >
-                Объект
-            </Typography>
-            <Box sx={{ m: 1 }}>
-                {/* <Button
-                startIcon={(<UploadIcon fontSize="small" />)}
-                sx={{ mr: 1 }}
-                >
-                Import
-                </Button>
-                <Button
-                startIcon={(<DownloadIcon fontSize="small" />)}
-                sx={{ mr: 1 }}
-                >
-                Export
-                </Button> */}
-                <Button
-                color="primary"
-                variant="contained"
-                >
-                Сохранить
-                </Button>
-            </Box>
-        </Box>
-        <Box sx={{ mt: 3 }}>
-            <ObjectPreview/>
-        </Box>
-      </Container>
-    </Box>
-  </>
-);
+      >
+        <Container maxWidth={false}>
+          
+              <ObjectPreview data={data}/>
+          
+        </Container>
+      </Box>
+    </>
+  )
+
+
+};
 ObjectOne.getLayout = (page) => (
   <DashboardLayout>
     {page}
   </DashboardLayout>
 );
+
+
+export async function getServerSideProps({params}) {
+  // Fetch data from external API
+  const res = await fetch(`http://localhost:5000/objects/${params.id}`)
+  const data = await res.json()
+
+  // Pass data to the page via props
+  return { props: { data } }
+}
 
 export default ObjectOne;

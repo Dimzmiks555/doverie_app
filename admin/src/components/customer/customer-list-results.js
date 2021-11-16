@@ -18,7 +18,7 @@ import {
 } from '@mui/material';
 import { getInitials } from '../../utils/get-initials';
 
-export const CustomerListResults = ({ customers, ...rest }) => {
+export const CustomerListResults = ({ objects, ...rest }) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
@@ -72,11 +72,11 @@ export const CustomerListResults = ({ customers, ...rest }) => {
               <TableRow>
                 <TableCell padding="checkbox">
                   <Checkbox
-                    checked={selectedCustomerIds.length === customers.length}
+                    checked={selectedCustomerIds.length === objects.length}
                     color="primary"
                     indeterminate={
                       selectedCustomerIds.length > 0
-                      && selectedCustomerIds.length < customers.length
+                      && selectedCustomerIds.length < objects.length
                     }
                     onChange={handleSelectAll}
                   />
@@ -100,64 +100,52 @@ export const CustomerListResults = ({ customers, ...rest }) => {
                   Цена
                 </TableCell>
                 <TableCell>
+                  Дата создания
+                </TableCell>
+                <TableCell>
                   Статус
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {customers.slice(0, limit).map((customer) => (
+              {objects?.rows?.map((object) => (
                 <TableRow
                   hover
-                  key={customer.id}
-                  selected={selectedCustomerIds.indexOf(customer.id) !== -1}
+                  key={object.id}
+                  selected={selectedCustomerIds.indexOf(object.id) !== -1}
                 >
                   <TableCell padding="checkbox">
                     <Checkbox
-                      checked={selectedCustomerIds.indexOf(customer.id) !== -1}
-                      onChange={(event) => handleSelectOne(event, customer.id)}
+                      checked={selectedCustomerIds.indexOf(object.id) !== -1}
+                      onChange={(event) => handleSelectOne(event, object.id)}
                       value="true"
                     />
                   </TableCell>
                   <TableCell>
-                    <Box
-                      sx={{
-                        alignItems: 'center',
-                        display: 'flex'
-                      }}
-                    >
-                      <Avatar
-                        src={customer.avatarUrl}
-                        sx={{ mr: 2 }}
-                      >
-                        {getInitials(customer.name)}
-                      </Avatar>
-                      <Typography
-                        color="textPrimary"
-                        variant="body1"
-                      >
-                        {customer.name}
-                      </Typography>
-                    </Box>
+                    {object.id}
                   </TableCell>
                   <TableCell>
-                    {customer.email}
+                    {object.email}
                   </TableCell>
                   <TableCell>
-                    <Link href={`/objects/${customer?.id}`}>
-                      {`${customer.address.city}, ${customer.address.state}, ${customer.address.country}`}
+                    <Link href={`/objects/${object?.id}`}>
+                      {`${object.city}, ${object.street}, ${object.house}, ${object.flat}`}
                     </Link>
                   </TableCell>
                   <TableCell>
-                    {customer.phone}
+                    {object.type}
                   </TableCell>
                   <TableCell>
-                    {customer.phone}
+                    {object.kind}
                   </TableCell>
                   <TableCell>
-                    {customer.price}
+                    {object.price}
                   </TableCell>
                   <TableCell>
-                    {format(customer.createdAt, 'dd/MM/yyyy')}
+                    {new Date(object.createdAt).toLocaleDateString()}
+                  </TableCell>
+                  <TableCell>
+                    {object.status}
                   </TableCell>
                 </TableRow>
               ))}
@@ -167,7 +155,7 @@ export const CustomerListResults = ({ customers, ...rest }) => {
       </PerfectScrollbar>
       <TablePagination
         component="div"
-        count={customers.length}
+        count={objects.count}
         onPageChange={handlePageChange}
         onRowsPerPageChange={handleLimitChange}
         page={page}

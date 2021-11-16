@@ -1,11 +1,12 @@
 import Head from 'next/head';
+import { GetServerSideProps } from 'next'
 import { Box, Container } from '@mui/material';
 import { CustomerListResults } from '../components/customer/customer-list-results';
 import { CustomerListToolbar } from '../components/customer/customer-list-toolbar';
 import { DashboardLayout } from '../components/dashboard-layout';
 import { customers } from '../__mocks__/customers';
 
-const Customers = () => (
+const Customers = ({objects}) => (
   <>
     <Head>
       <title>
@@ -22,7 +23,7 @@ const Customers = () => (
       <Container maxWidth={false}>
         <CustomerListToolbar />
         <Box sx={{ mt: 3 }}>
-          <CustomerListResults customers={customers} />
+          <CustomerListResults objects={objects} />
         </Box>
       </Container>
     </Box>
@@ -33,5 +34,15 @@ Customers.getLayout = (page) => (
     {page}
   </DashboardLayout>
 );
+
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`http://localhost:5000/objects`)
+  const objects = await res.json()
+
+  // Pass data to the page via props
+  return { props: { objects } }
+}
 
 export default Customers;
