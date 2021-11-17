@@ -305,7 +305,7 @@ export default function CatalogVariant({ data }) {
                 <div className="row mb30">
                     <div className="col-lg-7 col-xl-8">
                         <div className="single_property_title mt30-767">
-                            <h2>{data.rooms}-комнатная квартира</h2>
+                            <h2>{data.rooms}-комнат. {data?.type?.toLowerCase()}</h2>
                             <p>{data?.street} улица, {data?.city} </p>
                         </div>
                         <div className="dn db-991">
@@ -330,46 +330,30 @@ export default function CatalogVariant({ data }) {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="spls_style_two mb30-520">
-                                    <a className="popup-img" href="images/property/1.jpg"><img className="img-fluid w100"  src="/images/property/1.jpg" alt="1.jpg"></img></a>
+                                    <a className="popup-img" href={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`}><img className="img-fluid w100" style={{height: 600, objectFit: 'cover'}} src={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`} alt="1.jpg"></img></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-sm-5 col-lg-4">
                         <div className="row">
-                            <div className="col-sm-6 col-lg-6">
-                                <div className="spls_style_two mb30">
-                                    <a className="popup-img" href="/images/property/2.jpg"><img className="img-fluid w100"  src="/images/property/2.jpg" alt="2.jpg"></img></a>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-lg-6">
-                                <div className="spls_style_two mb30">
-                                    <a className="popup-img" href="/images/property/3.jpg"><img className="img-fluid w100"  src="/images/property/3.jpg" alt="3.jpg"></img></a>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-lg-6">
-                                <div className="spls_style_two mb30">
-                                    <a className="popup-img" href="/images/property/4.jpg"><img className="img-fluid w100"  src="/images/property/4.jpg" alt="4.jpg"></img></a>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-lg-6">
-                                <div className="spls_style_two mb30">
-                                    <a className="popup-img" href="/images/property/5.jpg"><img className="img-fluid w100"  src="/images/property/5.jpg" alt="5.jpg"></img></a>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-lg-6">
-                                <div className="spls_style_two mb30">
-                                    <a className="popup-img" href="/images/property/6.jpg"><img className="img-fluid w100"  src="/images/property/6.jpg" alt="6.jpg"></img></a>
-                                </div>
-                            </div>
-                            <div className="col-sm-6 col-lg-6">
+                            {
+                                data.images?.filter(item => {return !item.main})?.map(image => (
+                                    <div className="col-sm-6 col-lg-6">
+                                        <div className="spls_style_two mb30">
+                                            <a className="popup-img" href={`http://localhost:5000/${image.src}`}><img className="img-fluid w100" style={{height: 120, objectFit: 'cover'}} src={`http://localhost:5000/${image.src}`} alt="2.jpg"></img></a>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                            {/* <div className="col-sm-6 col-lg-6">
                                 <div className="spls_style_two mb30">
                                     <a className="popup-img" href="/images/property/7.jpg"><img className="img-fluid w100"  src="/images/property/7.jpg" alt="7.jpg"></img></a>
                                     <div className="overlay popup-img">
                                         <h3 className="title">+20</h3>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

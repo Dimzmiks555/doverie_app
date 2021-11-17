@@ -14,5 +14,8 @@ export class ImageModel extends Model {
     @Column({type: DataType.STRING})
     src: string;
 
+    @Column({type: DataType.BOOLEAN})
+    main: boolean;
+
     
 }

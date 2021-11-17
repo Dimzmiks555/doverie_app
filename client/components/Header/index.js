@@ -30,9 +30,9 @@ export default function Header() {
                         </div>
                         <Link href='/'>
                             <a href="/" className="navbar_brand float-left dn-smd">
-                                <img className="logo1 img-fluid" src="/images/header-logo2.png" alt="header-logo.png"></img>
-                                <img className="logo2 img-fluid" src="/images/header-logo2.png" alt="header-logo2.png"></img>
-                                <span>Доверие</span>
+                                <img  style={{height: 50}} className="logo1 img-fluid" src="/images/header-logo2.svg" alt="header-logo.png"></img>
+                                <img  style={{height: 50}} className="logo2 img-fluid" src="/images/header-logo2.svg" alt="header-logo2.png"></img>
+                                <span style={{color: '#229922'}}>Доверие</span>
                             </a>
                         </Link>
                         {/* <!-- Responsive Menu Structure-->
@@ -43,29 +43,7 @@ export default function Header() {
                                 {/* <!-- Level Two--> */}
                                 
                             </li>
-                            <li>
-                                <a href="#"> Каталог</a>
-                                {/* <!-- Level Two--> */}
-                                <ul>
-                                    <li>
-                                        <a href="#">Купить</a>
-                                        {/* <!-- Level Three--> */}
-                                        <ul>
-                                            <li><a href="page-listing-grid-v1.html">Дом</a></li>
-                                            <li><a href="page-listing-grid-v2.html">Квартиру</a></li>
-                                            <li><a href="page-listing-grid-v2.html">Дачу</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Снять</a>
-                                        {/* <!-- Level Three--> */}
-                                        <ul>
-                                            <li><a href="page-listing-list.html">Квартиру</a></li>
-                                        </ul>
-                                    </li>
-                                    
-                                </ul>
-                            </li>
+                            
                             <li>
                                 <a href="#"> О нас</a>
                                 

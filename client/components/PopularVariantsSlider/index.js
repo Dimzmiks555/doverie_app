@@ -1,6 +1,9 @@
 import VariantCard from "../VariantCard";
 
-export default function PopularVariantsSlider() {
+export default function PopularVariantsSlider({objects}) {
+
+    // objects.rows?.length = 10
+    
     return (
         <section id="feature-property" className="feature-property mt80 pb50">
             <div className="container-fluid ovh">
@@ -13,10 +16,17 @@ export default function PopularVariantsSlider() {
                     </div>
                     <div className="col-lg-12">
                         <div className="feature_property_home3_slider">
-                            {
+                            {/* {
                                 [0,1,2,3,4,5,6,7,8,9].map(item => (
                                     <div className="item" >
                                         <VariantCard disableArrows id={item}/>
+                                    </div>
+                                ))
+                            } */}
+                            {
+                                objects?.rows?.map(item => (
+                                    <div key={item.id} className="item">
+                                        <VariantCard disableArrows object={item}/>
                                     </div>
                                 ))
                             }

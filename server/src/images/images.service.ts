@@ -18,7 +18,8 @@ export class ImagesService {
     console.log('t')
     const object = await this.imagesModel.create({
         src: files.filename,
-        object_id: body.id
+        object_id: body.id,
+        main: false
     })
     return object
 
@@ -33,8 +34,8 @@ export class ImagesService {
     return `This action returns a #${id} image`;
   }
 
-  update(id: number, updateImageDto: UpdateImageDto) {
-    return `This action updates a #${id} image`;
+  async update(id: number, updateImageDto: UpdateImageDto) {
+    return await this.imagesModel.update(updateImageDto, {where: {id}})
   }
 
   remove(id: number) {

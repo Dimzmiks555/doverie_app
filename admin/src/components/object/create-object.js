@@ -100,10 +100,10 @@ export const CreateObjectMain = ({ customers, ...rest }) => {
                 <TextField {...register('rooms', { required: true })} label="Количество комнат" />
                 <TextField {...register('price', { required: true })} label="Цена" />
             </Box>
-            <Typography variant='h5'>Изображения</Typography>
+            {/* <Typography variant='h5'>Изображения</Typography>
             <Box sx={{py: 5, display: 'flex', justifyContent: 'space-between'}}>
                 <UploadImages/>
-            </Box>
+            </Box> */}
             <Typography variant='h5'>Описание</Typography>
             <Box sx={{py: 5, display: 'flex', justifyContent: 'space-between'}}>
                 <TextField {...register('description', { required: false })} label="Описание" multiline fullWidth rows={10}/>

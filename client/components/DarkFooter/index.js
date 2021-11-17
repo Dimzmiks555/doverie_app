@@ -56,7 +56,6 @@ export default function DarkFooter() {
                         <div className="footer_menu_widget">
                             <ul>
                                 <li className="list-inline-item"><a href="#">Главная</a></li>
-                                <li className="list-inline-item"><a href="#">Каталог</a></li>
                                 <li className="list-inline-item"><a href="#">О нас</a></li>
                                 <li className="list-inline-item"><a href="#">Галерея</a></li>
                                 <li className="list-inline-item"><a href="#">Контакты</a></li>
@@ -65,7 +64,7 @@ export default function DarkFooter() {
                     </div>
                     <div className="col-lg-6 col-xl-6">
                         <div className="copyright-widget text-right">
-                            <p>© 2020 Доверие.</p>
+                            <p>© 2020 Доверие - агенство недвижимости в городе Лиски</p>
                         </div>
                     </div>
                 </div>

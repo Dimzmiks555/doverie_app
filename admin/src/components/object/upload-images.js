@@ -37,17 +37,17 @@ const img = {
 
 
 export default function UploadImages({callback}) {
+
   const [files, setFiles] = useState([]);
   const {getRootProps, getInputProps} = useDropzone({
     accept: 'image/*',
     onDrop: acceptedFiles => {
-      console.log(acceptedFiles)
       
       setFiles(acceptedFiles.map(file => Object.assign(file, {
         preview: URL.createObjectURL(file)
       })));
       
-      callback(files)
+      callback(acceptedFiles)
     }
   });
   
@@ -66,7 +66,7 @@ export default function UploadImages({callback}) {
     // Make sure to revoke the data uris to avoid memory leaks
     files.forEach(file => URL.revokeObjectURL(file.preview));
     
-    callback(files)
+    // callback(files)
   }, [files]);
 
   return (

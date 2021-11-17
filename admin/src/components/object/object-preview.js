@@ -8,6 +8,9 @@ import {
   Button,
   Card,
   Checkbox,
+  FormControlLabel,
+  FormGroup,
+  Switch,
   Table,
   TableBody,
   TableCell,
@@ -29,7 +32,7 @@ export const ObjectPreview = ({ data, ...rest }) => {
   const router = useRouter()
   const { register, handleSubmit } = useForm();
   
-  const [ files , setFiles ] = useState();
+  const [ files , setFiles ] = useState([]);
 
   function onSubmit(data) {
     console.log(data); 
@@ -48,6 +51,11 @@ export const ObjectPreview = ({ data, ...rest }) => {
     .then(data => {
       console.log(data)
 
+      
+
+    })
+    
+    if (files?.length > 0) {
       files.forEach(item => {
         console.log(item.path)
         let formData = new FormData();
@@ -61,13 +69,64 @@ export const ObjectPreview = ({ data, ...rest }) => {
           })
           .then(d => {
             console.log(d)
+  
           });
         })
-
-    })
+    }
   }
 
+  const handleMain = (id) => {
 
+      let ImageNotMain = data?.images?.find((item) => {return item.id == id && (item.main == false || item.main == null)})
+      let ImageMain = data?.images?.find((item) => {return item.main == true})
+
+      if (ImageNotMain && ImageMain) {
+        fetch(`http://localhost:5000/images/${ImageNotMain.id}`, {
+          method: 'PATCH',
+          body: JSON.stringify({main: true}),
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          }
+        })
+        .then(d => {
+          console.log(d)
+          
+          router.reload()
+        });
+        fetch(`http://localhost:5000/images/${ImageMain.id}`, {
+          method: 'PATCH',
+          body: JSON.stringify({main: false}),
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          }
+        })
+        .then(d => {
+          console.log(d)
+          
+          router.reload()
+        });
+        console.log('change image')
+      } else if (ImageNotMain && !ImageMain) {
+        fetch(`http://localhost:5000/images/${ImageNotMain.id}`, {
+          method: 'PATCH',
+          body: JSON.stringify({main: true}),
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          }
+        })
+        .then(d => {
+          console.log(d)
+          router.reload()
+        });
+        
+        console.log('new image')
+      }
+      
+      console.log( id)
+  }
     
 
 
@@ -91,6 +150,9 @@ export const ObjectPreview = ({ data, ...rest }) => {
             >
                 Объект № {router.query.id}
             </Typography>
+            <FormGroup>
+              <FormControlLabel control={<Switch defaultChecked={data?.featured} {...register('featured', { required: false })}/>} label="Популярный объект" />
+            </FormGroup>
             <Box sx={{ m: 1 }}>
                 {/* <Button
                 startIcon={(<UploadIcon fontSize="small" />)}
@@ -134,7 +196,7 @@ export const ObjectPreview = ({ data, ...rest }) => {
             <Box>
                 {
                   data?.images?.map(image => (
-                    <img width={200} height={200} style={{objectFit: 'scale-down', margin: 20}} src={`http://localhost:5000/${image.src}`}></img>
+                    <img width={200} height={200} style={{objectFit: 'scale-down', margin: 20, cursor: 'pointer', border: `2px solid ${image.main && 'green'}`}} src={`http://localhost:5000/${image.src}` } onClick={e => {handleMain(image.id)}}></img>
                   ))
                 }
             </Box>

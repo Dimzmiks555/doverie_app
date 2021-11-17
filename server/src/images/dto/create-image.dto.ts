@@ -1,3 +1,4 @@
 export class CreateImageDto {
-    id: number
+    readonly id: number
+    readonly main: boolean
 }

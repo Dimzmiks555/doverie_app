@@ -8,7 +8,7 @@ import PopularVariantsSlider from '../components/PopularVariantsSlider/index.js'
 import useScript from '../hooks/useScript.js';
 
 
-export default function Home() {
+function Home({objects}) {
 
 
 	if (typeof window != 'undefined') {
@@ -201,7 +201,7 @@ export default function Home() {
 	{/* <!-- Feature Properties --> */}
 	
 	{/* <!-- Property Cities --> */}
-	<PopularVariantsSlider id='1'/>
+	<PopularVariantsSlider objects={objects}/>
 
 	{/* <!-- Property Search --> */}
 	<section id="property-search" className="property-search bg-img4">
@@ -219,7 +219,7 @@ export default function Home() {
 	</section>
 
 	{/* <!-- Property Cities --> */}
-	<CheapestVariants/>
+	<CheapestVariants objects={objects}/>
 
 	{/* <!-- Our Agents --> */}
 	{/* <section id="our-agents" className="our-agents pt40 pb30">
@@ -368,3 +368,12 @@ export default function Home() {
 </div>
   )
 }
+
+export async function getServerSideProps() {
+    const res = await fetch(`http://localhost:5000/objects`)
+    const objects = await res.json()
+
+    return {props : {objects}}
+}
+
+export default Home

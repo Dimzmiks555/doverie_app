@@ -69,7 +69,6 @@ export default function Footer() {
                         <div className="footer_menu_widget home3">
                             <ul>
                                 <li className="list-inline-item"><a href="#">Главная</a></li>
-                                <li className="list-inline-item"><a href="#">Каталог</a></li>
                                 <li className="list-inline-item"><a href="#">О нас</a></li>
                                 <li className="list-inline-item"><a href="#">Галерея</a></li>
                                 <li className="list-inline-item"><a href="#">Контакты</a></li>
@@ -78,7 +77,7 @@ export default function Footer() {
                     </div>
                     <div className="col-lg-6 col-xl-6">
                         <div className="copyright-widget home3 text-right">
-                            <p>© 2020 Доверие.</p>
+                            <p>© 2020 Доверие - агенство недвижимости в городе Лиски</p>
                         </div>
                     </div>
                 </div>
