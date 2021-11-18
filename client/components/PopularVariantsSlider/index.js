@@ -11,7 +11,7 @@ export default function PopularVariantsSlider({objects}) {
                     <div className="col-lg-12">
                         <div className="main-title mb40">
                             <h2>Лучшие варианты</h2>
-                            <p>Подобранные нами варианты. <a className="float-right" href="#">Посмотреть всё <span className="flaticon-next"></span></a></p>
+                            <p>Подобранные нами варианты.</p>
                         </div>
                     </div>
                     <div className="col-lg-12">

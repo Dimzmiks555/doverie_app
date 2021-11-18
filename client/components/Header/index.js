@@ -39,7 +39,7 @@ export default function Header() {
                         <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) --> */}
                         <ul id="respMenu" className="ace-responsive-menu text-right" data-menu-style="horizontal">
                             <li>
-                                <a href="#">Главная</a>
+                                <Link href='/'><a href="#">Главная</a></Link>
                                 {/* <!-- Level Two--> */}
                                 
                             </li>

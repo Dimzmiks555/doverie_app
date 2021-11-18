@@ -1,3 +1,31 @@
+import Select from 'react-select'
+
+const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ]
+  
+  const customStyles = {
+    // option: (provided, state) => ({
+    //   ...provided,
+    //   borderBottom: '1px dotted pink',
+    //   color: state.isSelected ? 'red' : 'blue',
+    //   padding: 20,
+    // }),
+    // control: () => ({
+    //   // none of react-select's styles are passed to <Control />
+    //   width: 200,
+    // }),
+    // singleValue: (provided, state) => {
+    //   const opacity = state.isDisabled ? 0.5 : 1;
+    //   const transition = 'opacity 300ms';
+  
+    //   return { ...provided, opacity, transition };
+    // }
+  }
+
+
 export default function MainFilter() {
     return (
         <div className="home_adv_srch_opt home3">
@@ -11,55 +39,18 @@ export default function MainFilter() {
             </ul>
             <div className="tab-content home1_adsrchfrm" id="pills-tabContent">
                 <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    <div className="home1-advnc-search home3" style={{width: '100%'}}>
+                    <div className="home1-advnc-search home3" style={{width: '200px'}}>
+                        
                         <ul className="h1ads_1st_list mb0" style={{display: 'flex'}} >
-                            <li className="list-inline-item">
-                                <div className="htmlForm-group">
-                                    {/* <input type="text" className="htmlForm-control" id="exampleInputName1" placeholder="Enter keyword..."></input> */}
-                                </div>
+                            
+                            <li style={{minWidth: 200}}>
+                                <Select options={options} styles={customStyles}/>
                             </li>
-                            <li className="list-inline-item">
-                                <div className="search_option_two">
-                                    <div className="candidate_revew_select">
-                                        <select className="selectpicker w100 show-tick">
-                                            <option>Тип </option>
-                                            <option>Дом</option>
-                                            <option>Квартира</option>
-                                            <option>Коттедж</option>
-                                        </select>
-                                    </div>
-                                </div>
+                            <li style={{minWidth: 200}}>
+                                <Select options={options} styles={customStyles}/>
                             </li>
-                            <li className="list-inline-item">
-                                <div className="search_option_two">
-                                    <div className="candidate_revew_select">
-                                        <select className="selectpicker w100 show-tick">
-                                            <option>Количество комнат</option>
-                                            <option>Студия</option>
-                                            <option>1 комната</option>
-                                            <option>2 комнаты</option>
-                                            <option>3 комнаты</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </li>
-                            <li className="list-inline-item"  style={{marginLeft: 'auto', display: 'block', marginRight: '60px'}} >
-                                <div className="small_dropdown2 home3">
-                                    <div id="prncgs" className="btn dd_btn">
-                                        <span>Цена, руб.</span>
-                                        <label htmlFor="exampleInputEmail2"><span className="fa fa-angle-down"></span></label>
-                                    </div>
-                                    <div className="dd_content2">
-                                        <div className="pricing_acontent">
-                                            <input type="text" className="amount" placeholder="52000"></input>
-                                            <input type="text" className="amount2" placeholder="9850000"></input>
-                                            <div className="slider-range"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li className="list-inline-item" style={{marginLeft: '60px', display: 'block', marginRight: '60px'}}>
-                                <div className="search_option_button">
+                            <li className="list-inline-item" style={{display: 'block'}>
+                                <div className="search_option_button" style={{marginLeft: 'auto'}}>
                                     <button type="submit" className="btn btn-thm3">Поиск</button>
                                 </div>
                             </li>

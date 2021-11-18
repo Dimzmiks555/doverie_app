@@ -9,8 +9,9 @@ import { TotalCustomers } from '../components/dashboard/total-customers';
 import { TotalProfit } from '../components/dashboard/total-profit';
 import { TrafficByDevice } from '../components/dashboard/traffic-by-device';
 import { DashboardLayout } from '../components/dashboard-layout';
+import { PopularObjects } from 'src/components/dashboard/popular-objects';
 
-const Dashboard = () => (
+const Dashboard = ({objects}) => (
   <>
     <Head>
       <title>
@@ -24,12 +25,12 @@ const Dashboard = () => (
         py: 8
       }}
     >
-      {/* <Container maxWidth={false}>
+      <Container maxWidth={false}>
         <Grid
           container
           spacing={3}
         >
-          <Grid
+          {/* <Grid
             item
             lg={3}
             sm={6}
@@ -64,7 +65,7 @@ const Dashboard = () => (
             xs={12}
           >
             <TotalProfit sx={{ height: '100%' }} />
-          </Grid>
+          </Grid> */}
           <Grid
             item
             lg={8}
@@ -72,7 +73,7 @@ const Dashboard = () => (
             xl={9}
             xs={12}
           >
-            <Sales />
+            {/* <Sales /> */}
           </Grid>
           <Grid
             item
@@ -81,17 +82,17 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <TrafficByDevice sx={{ height: '100%' }} />
+            {/* <TrafficByDevice sx={{ height: '100%' }} /> */}
           </Grid>
-          <Grid
+          {/* <Grid
             item
             lg={4}
             md={6}
             xl={3}
             xs={12}
           >
-            <LatestProducts sx={{ height: '100%' }} />
-          </Grid>
+            
+          </Grid> */}
           <Grid
             item
             lg={8}
@@ -99,10 +100,12 @@ const Dashboard = () => (
             xl={9}
             xs={12}
           >
-            <LatestOrders />
+            {/* <LatestOrders /> */}
+            {console.log(objects)}
+            <PopularObjects sx={{ height: '100%' }} objects={objects}/>
           </Grid>
         </Grid>
-      </Container> */}
+      </Container>
     </Box>
   </>
 );
@@ -113,4 +116,22 @@ Dashboard.getLayout = (page) => (
   </DashboardLayout>
 );
 
+export async function getServerSideProps() {
+
+  const res = await fetch(`http://localhost:5000/objects?featured=true`)
+
+  const objects = await res.json()
+
+  return {
+    props: {
+      objects
+    }
+  }
+
+}
+
+
 export default Dashboard;
+
+
+

@@ -124,8 +124,8 @@ export const CustomerListResults = ({ objects, ...rest }) => {
                   <TableCell>
                     {object.id}
                   </TableCell>
-                  <TableCell>
-                    <img style={{height: 100, width: 100, objectFit: 'scale-down'}} src={`http://localhost:5000/${object?.images?.find(item => {return item.main}) ? object?.images?.find(item => {return item.main})?.src : object?.images?.[0]?.src}`}></img>
+                  <TableCell sx={{display: 'flex', justifyContent: 'center'}}>
+                    <img style={{height: 100, objectFit: 'scale-down', borderRadius: 8}} src={`http://localhost:5000/${object?.images?.find(item => {return item.main}) ? object?.images?.find(item => {return item.main})?.src : object?.images?.[0]?.src}`}></img>
                   </TableCell>
                   <TableCell>
                     <Link href={`/objects/${object?.id}`}>

@@ -8,7 +8,7 @@ import PopularVariantsSlider from '../components/PopularVariantsSlider/index.js'
 import useScript from '../hooks/useScript.js';
 
 
-function Home({objects}) {
+function Home({objects, objectsFeatured}) {
 
 
 	if (typeof window != 'undefined') {
@@ -20,7 +20,7 @@ function Home({objects}) {
     useScript('/js/popper.min.js');
     useScript('/js/bootstrap.min.js');
     useScript('/js/jquery.mmenu.all.js');
-    useScript('/js/ace-responsive-menu.js');
+    // useScript('/js/ace-responsive-menu.js');
     useScript('/js/bootstrap-select.min.js');
     useScript('/js/isotop.js');
     useScript('/js/snackbar.min.js');
@@ -30,7 +30,7 @@ function Home({objects}) {
     useScript('/js/wow.min.js');
     useScript('/js/jquery.counterup.js');
     useScript('/js/timepicker.js');
-    useScript('/js/jquery-scrolltofixed-min.js');
+    // useScript('/js/jquery-scrolltofixed-min.js');
     useScript('/js/script.js');
 
   return (
@@ -201,7 +201,7 @@ function Home({objects}) {
 	{/* <!-- Feature Properties --> */}
 	
 	{/* <!-- Property Cities --> */}
-	<PopularVariantsSlider objects={objects}/>
+	<PopularVariantsSlider objects={objectsFeatured}/>
 
 	{/* <!-- Property Search --> */}
 	<section id="property-search" className="property-search bg-img4">
@@ -373,7 +373,10 @@ export async function getServerSideProps() {
     const res = await fetch(`http://localhost:5000/objects`)
     const objects = await res.json()
 
-    return {props : {objects}}
+	const resFeatured = await fetch(`http://localhost:5000/objects?featured=true`)
+    const objectsFeatured = await resFeatured.json()
+
+    return {props : {objects, objectsFeatured}}
 }
 
 export default Home

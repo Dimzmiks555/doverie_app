@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function DarkFooter() {
     return (
         <>
@@ -55,10 +57,10 @@ export default function DarkFooter() {
                     <div className="col-lg-6 col-xl-6">
                         <div className="footer_menu_widget">
                             <ul>
-                                <li className="list-inline-item"><a href="#">Главная</a></li>
-                                <li className="list-inline-item"><a href="#">О нас</a></li>
-                                <li className="list-inline-item"><a href="#">Галерея</a></li>
-                                <li className="list-inline-item"><a href="#">Контакты</a></li>
+                                <li className="list-inline-item"><Link href='/'><a href="#">Главная</a></Link></li>
+                                <li className="list-inline-item"><Link href='/'><a href="#">О нас</a></Link></li>
+                                <li className="list-inline-item"><Link href='/'><a href="#">Галерея</a></Link></li>
+                                <li className="list-inline-item"><Link href='/'><a href="#">Контакты</a></Link></li>
                             </ul>
                         </div>
                     </div>

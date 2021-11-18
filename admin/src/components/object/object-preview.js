@@ -3,6 +3,8 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 import {
+  Alert,
+  AlertTitle,
   Avatar,
   Box,
   Button,
@@ -33,6 +35,8 @@ export const ObjectPreview = ({ data, ...rest }) => {
   const { register, handleSubmit } = useForm();
   
   const [ files , setFiles ] = useState([]);
+  const [ accessAlert , setAccessAlert ] = useState(false);
+
 
   function onSubmit(data) {
     console.log(data); 
@@ -51,7 +55,9 @@ export const ObjectPreview = ({ data, ...rest }) => {
     .then(data => {
       console.log(data)
 
-      
+      setAccessAlert(true)
+
+      setTimeout(() => {setAccessAlert(false)}, 5000)
 
     })
     
@@ -209,6 +215,15 @@ export const ObjectPreview = ({ data, ...rest }) => {
             </Box>
         </Card>
         </form>
+        
+        {
+          accessAlert && (
+            <Alert sx={{position: 'fixed', top: 70, left: '45%', width: '30%'}} severity="success">
+              <AlertTitle>Успех</AlertTitle>
+              Изменения успешно <strong>сохранены!</strong>
+            </Alert>
+          )
+        }
     </Box>
   );
 };

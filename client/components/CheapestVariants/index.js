@@ -14,7 +14,7 @@ function CheapestVariants({objects}) {
                     <div className="col-lg-12">
                         <div className="main-title">
                             <h2>Новые предложения</h2>
-                            <p>Варианты, выставленные недавно. <a className="float-right" href="#">Посмотреть всё <span className="flaticon-next"></span></a></p>
+                            <p>Варианты, выставленные недавно. </p>
                         </div>
                     </div>
                 </div>

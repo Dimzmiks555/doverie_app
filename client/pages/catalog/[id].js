@@ -8,7 +8,7 @@ import PopularVariantsWidget from '../../components/PopularVariantsWidget/index.
 import RecentVariantsWidget from '../../components/RecentVariantsWidget/index.js';
 import useScript from '../../hooks/useScript.js';
 
-export default function CatalogVariant({ data }) {
+export default function CatalogVariant({ data, dataPopular }) {
 
     const router = useRouter();
 
@@ -22,11 +22,11 @@ export default function CatalogVariant({ data }) {
     
     useScript('/js/jquery-3.3.1.js');
     useScript('/js/jquery-migrate-3.0.0.min.js');
-    useScript('/js/popper.min.js');
+    // useScript('/js/popper.min.js');
     useScript('/js/bootstrap.min.js');
-    useScript('/js/jquery.mmenu.all.js');
+    // useScript('/js/jquery.mmenu.all.js');
     useScript('/js/ace-responsive-menu.js');
-    useScript('/js/bootstrap-select.min.js');
+    // useScript('/js/bootstrap-select.min.js');
     useScript('/js/isotop.js');
     useScript('/js/snackbar.min.js');
     useScript('/js/simplebar.js');
@@ -35,7 +35,7 @@ export default function CatalogVariant({ data }) {
     useScript('/js/wow.min.js');
     useScript('/js/jquery.counterup.js');
     useScript('/js/timepicker.js');
-    useScript('/js/jquery-scrolltofixed-min.js');
+    // useScript('/js/jquery-scrolltofixed-min.js');
     useScript('/js/script.js');
 
 
@@ -45,263 +45,7 @@ export default function CatalogVariant({ data }) {
 
         <section className="listing-title-area">
             <div className="container">
-                <div className="row">
-                    <div className="col-lg-12">
-                        <div className="listing_sidebar dn db-991">
-                            <div className="sidebar_content_details style3">
-                                <div className="sidebar_listing_list style2 mobile_sytle_sidebar mb0">
-                                    <div className="sidebar_advanced_search_widget">
-                                        <h4 className="mb25">Advanced Search <a className="filter_closed_btn float-right" href="#"><small>Hide Filter</small> <span className="flaticon-close"></span></a></h4>
-                                        <ul className="sasw_list style2 mb0">
-                                            <li className="search_area">
-                                                <div className="htmlForm-group">
-                                                    <input type="text" className="htmlForm-control" id="exampleInputName1" placeholder="keyword"></input>
-                                                    <label htmlFor="exampleInputEmail"><span className="flaticon-magnifying-glass"></span></label>
-                                                </div>
-                                            </li>
-                                            <li className="search_area">
-                                                <div className="htmlForm-group">
-                                                    <input type="text" className="htmlForm-control" id="exampleInputEmail" placeholder="Location"></input>
-                                                    <label htmlFor="exampleInputEmail"><span className="flaticon-maps-and-flags"></span></label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="search_option_two">
-                                                    <div className="candidate_revew_select">
-                                                        <select className="selectpicker w100 show-tick">
-                                                            <option>Status</option>
-                                                            <option>Apartment</option>
-                                                            <option>Bungalow</option>
-                                                            <option>Condo</option>
-                                                            <option>House</option>
-                                                            <option>Land</option>
-                                                            <option>Single Family</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="search_option_two">
-                                                    <div className="candidate_revew_select">
-                                                        <select className="selectpicker w100 show-tick">
-                                                            <option>Property Type</option>
-                                                            <option>Apartment</option>
-                                                            <option>Bungalow</option>
-                                                            <option>Condo</option>
-                                                            <option>House</option>
-                                                            <option>Land</option>
-                                                            <option>Single Family</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="small_dropdown2">
-                                                    <div id="prncgs" className="btn dd_btn">
-                                                        <span>Price</span>
-                                                        <label htmlFor="exampleInputEmail2"><span className="fa fa-angle-down"></span></label>
-                                                    </div>
-                                                    <div className="dd_content2">
-                                                        <div className="pricing_acontent">
-                                                            <input type="text" className="amount" placeholder="$52,239"></input>
-                                                            <input type="text" className="amount2" placeholder="$985,14"></input>
-                                                            <div className="slider-range"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="search_option_two">
-                                                    <div className="candidate_revew_select">
-                                                        <select className="selectpicker w100 show-tick">
-                                                            <option>Bathrooms</option>
-                                                            <option>1</option>
-                                                            <option>2</option>
-                                                            <option>3</option>
-                                                            <option>4</option>
-                                                            <option>5</option>
-                                                            <option>6</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="search_option_two">
-                                                    <div className="candidate_revew_select">
-                                                        <select className="selectpicker w100 show-tick">
-                                                            <option>Bedrooms</option>
-                                                            <option>1</option>
-                                                            <option>2</option>
-                                                            <option>3</option>
-                                                            <option>4</option>
-                                                            <option>5</option>
-                                                            <option>6</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="search_option_two">
-                                                    <div className="candidate_revew_select">
-                                                        <select className="selectpicker w100 show-tick">
-                                                            <option>Garages</option>
-                                                            <option>Yes</option>
-                                                            <option>No</option>
-                                                            <option>Others</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="search_option_two">
-                                                    <div className="candidate_revew_select">
-                                                        <select className="selectpicker w100 show-tick">
-                                                            <option>Year built</option>
-                                                            <option>2013</option>
-                                                            <option>2014</option>
-                                                            <option>2015</option>
-                                                            <option>2016</option>
-                                                            <option>2017</option>
-                                                            <option>2018</option>
-                                                            <option>2019</option>
-                                                            <option>2020</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li className="min_area style2 list-inline-item">
-                                                <div className="htmlForm-group">
-                                                    <input type="text" className="htmlForm-control" id="exampleInputName2" placeholder="Min Area"></input>
-                                                </div>
-                                            </li>
-                                            <li className="max_area list-inline-item">
-                                                <div className="htmlForm-group">
-                                                    <input type="text" className="htmlForm-control" id="exampleInputName3" placeholder="Max Area"></input>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div id="accordion" className="panel-group">
-                                                    <div className="panel">
-                                                        <div className="panel-heading">
-                                                            <h4 className="panel-title">
-                                                                <a href="#panelBodyRating" className="accordion-toggle link" data-toggle="collapse" data-parent="#accordion"><i className="flaticon-more"></i> Advanced features</a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="panelBodyRating" className="panel-collapse collapse">
-                                                            <div className="panel-body row">
-                                                                <div className="col-lg-12">
-                                                                    <ul className="ui_kit_checkbox selectable-list float-left fn-400">
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck1"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck1">Air Conditioning</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck4"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck4">Barbeque</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck10"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck10">Gym</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck5"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck5">Microwave</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck6"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck6">TV Cable</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck2"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck2">Lawn</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck11"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck11">Refrigerator</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck3"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck3">Swimming Pool</label>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <ul className="ui_kit_checkbox selectable-list float-right fn-400">
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck12"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck12">WiFi</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck14"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck14">Sauna</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck7"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck7">Dryer</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck9"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck9">Washer</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck13"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck13">Laundry</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck8"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck8">Outdoor Shower</label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div className="custom-control custom-checkbox">
-                                                                                <input type="checkbox" className="custom-control-input" id="customCheck15"></input>
-                                                                                <label className="custom-control-label" htmlFor="customCheck15">Window Coverings</label>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="search_option_button">
-                                                    <button type="submit" className="btn btn-block btn-thm">Search</button>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div className="row mb30">
                     <div className="col-lg-7 col-xl-8">
                         <div className="single_property_title mt30-767">
@@ -329,8 +73,8 @@ export default function CatalogVariant({ data }) {
                     <div className="col-sm-7 col-lg-8">
                         <div className="row">
                             <div className="col-lg-12">
-                                <div className="spls_style_two mb30-520">
-                                    <a className="popup-img" href={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`}><img className="img-fluid w100" style={{height: 600, objectFit: 'cover'}} src={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`} alt="1.jpg"></img></a>
+                                <div className="spls_style_two mb30-520" style={{display: 'flex', justifyContent: 'center'}}>
+                                    <a className="popup-img" href={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`}><img className="img-fluid" style={{maxHeight: 600, objectFit: 'scale-down', borderRadius: '10px'}} src={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`} alt="1.jpg"></img></a>
                                 </div>
                             </div>
                         </div>
@@ -341,7 +85,7 @@ export default function CatalogVariant({ data }) {
                                 data.images?.filter(item => {return !item.main})?.map(image => (
                                     <div className="col-sm-6 col-lg-6">
                                         <div className="spls_style_two mb30">
-                                            <a className="popup-img" href={`http://localhost:5000/${image.src}`}><img className="img-fluid w100" style={{height: 120, objectFit: 'cover'}} src={`http://localhost:5000/${image.src}`} alt="2.jpg"></img></a>
+                                            <a className="popup-img" href={`http://localhost:5000/${image.src}`}><img className="img-fluid" style={{maxHeight: 200, objectFit: 'scale-down'}} src={`http://localhost:5000/${image.src}`} alt="2.jpg"></img></a>
                                         </div>
                                     </div>
                                 ))
@@ -486,8 +230,8 @@ export default function CatalogVariant({ data }) {
                     </div>
                     <div className="col-lg-4 col-xl-4">
                         
-                        <PopularVariantsWidget/>
-                        <CategoriesWidget/>
+                        <PopularVariantsWidget objects={dataPopular}/>
+                        {/* <CategoriesWidget/> */}
                         <RecentVariantsWidget/>
                     </div>
                 </div>
@@ -504,9 +248,12 @@ export async function getServerSideProps({params}) {
     const res = await fetch(`http://localhost:5000/objects/${params.id}`)
     const data = await res.json()
 
+    const resPopular = await fetch(`http://localhost:5000/objects?featured=true`)
+    const dataPopular = await resPopular.json()
+
     return {
         props: {
-            data
+            data, dataPopular
         }
     }
 }

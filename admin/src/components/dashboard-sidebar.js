@@ -20,7 +20,7 @@ const items = [
   {
     href: '/',
     icon: (<ChartBarIcon fontSize="small" />),
-    title: 'Статистика'
+    title: 'Главная'
   },
   {
     href: '/objects',

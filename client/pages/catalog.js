@@ -40,7 +40,7 @@ export default function Home() {
   useScript('/js/wow.min.js');
   useScript('/js/jquery.counterup.js');
   useScript('/js/timepicker.js');
-  useScript('/js/jquery-scrolltofixed-min.js');
+//   useScript('/js/jquery-scrolltofixed-min.js');
   useScript('/js/script.js');
   return (
     <div className="wrapper">
