@@ -1,7 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import CategoriesWidget from '../components/CategoriesWidget/index.js';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import DarkFooter from '../components/DarkFooter/index.js';
 import FilterWidget from '../components/FilterWidget/index.js';
 import Footer from '../components/Footer/index.js';
@@ -14,17 +18,11 @@ import VariantCard from '../components/VariantCard/index.js';
 import useScript from '../hooks/useScript.js';
 
 
-export default function Home() {
+export default function Home({data, dataPopular}) {
 
 
+	const [kind, setKind] = useState('');
 
-  useEffect(() => {
-      console.log('fail')
-    if (typeof window != 'undefined') {
-        document.body.classList.remove('maxw1600')
-        document.body.classList.remove('m0a')
-    }
-  }, [])
   useScript('/js/jquery-3.3.1.js');
   useScript('/js/jquery-migrate-3.0.0.min.js');
   useScript('/js/popper.min.js');
@@ -42,6 +40,8 @@ export default function Home() {
   useScript('/js/timepicker.js');
 //   useScript('/js/jquery-scrolltofixed-min.js');
   useScript('/js/script.js');
+
+
   return (
     <div className="wrapper">
 
@@ -52,263 +52,7 @@ export default function Home() {
 
     <section className="our-listing bgc-f7 pb30-991">
 		<div className="container">
-			<div className="row">
-				<div className="col-lg-12">
-					<div className="listing_sidebar dn db-991">
-						<div className="sidebar_content_details style3">
-							<div className="sidebar_listing_list style2 mobile_sytle_sidebar mb0">
-								<div className="sidebar_advanced_search_widget">
-									<h4 className="mb25">Advanced Search <a className="filter_closed_btn float-right" href="#"><small>Hide Filter</small> <span className="flaticon-close"></span></a></h4>
-									<ul className="sasw_list style2 mb0">
-										<li className="search_area">
-										    <div className="htmlForm-group">
-										    	<input type="text" className="htmlForm-control" id="exampleInputName1" placeholder="keyword"></input>
-										    	<label htmlFor="exampleInputEmail"><span className="flaticon-magnifying-glass"></span></label>
-										    </div>
-										</li>
-										<li className="search_area">
-										    <div className="htmlForm-group">
-										    	<input type="text" className="htmlForm-control" id="exampleInputEmail" placeholder="Location"></input>
-										    	<label htmlFor="exampleInputEmail"><span className="flaticon-maps-and-flags"></span></label>
-										    </div>
-										</li>
-										<li>
-											<div className="search_option_two">
-												<div className="candidate_revew_select">
-													<select className="selectpicker w100 show-tick">
-														<option>Status</option>
-														<option>Apartment</option>
-														<option>Bungalow</option>
-														<option>Condo</option>
-														<option>House</option>
-														<option>Land</option>
-														<option>Single Family</option>
-													</select>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div className="search_option_two">
-												<div className="candidate_revew_select">
-													<select className="selectpicker w100 show-tick">
-														<option>Property Type</option>
-														<option>Apartment</option>
-														<option>Bungalow</option>
-														<option>Condo</option>
-														<option>House</option>
-														<option>Land</option>
-														<option>Single Family</option>
-													</select>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div className="small_dropdown2">
-											    <div id="prncgs" className="btn dd_btn">
-											    	<span>Price</span>
-											    	<label htmlFor="exampleInputEmail2"><span className="fa fa-angle-down"></span></label>
-											    </div>
-											  	<div className="dd_content2">
-												    <div className="pricing_acontent">
-														<input type="text" className="amount" placeholder="$52,239"></input>
-														<input type="text" className="amount2" placeholder="$985,14"></input>
-														<div className="slider-range"></div>
-												    </div>
-											  	</div>
-											</div>
-										</li>
-										<li>
-											<div className="search_option_two">
-												<div className="candidate_revew_select">
-													<select className="selectpicker w100 show-tick">
-														<option>Bathrooms</option>
-														<option>1</option>
-														<option>2</option>
-														<option>3</option>
-														<option>4</option>
-														<option>5</option>
-														<option>6</option>
-													</select>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div className="search_option_two">
-												<div className="candidate_revew_select">
-													<select className="selectpicker w100 show-tick">
-														<option>Bedrooms</option>
-														<option>1</option>
-														<option>2</option>
-														<option>3</option>
-														<option>4</option>
-														<option>5</option>
-														<option>6</option>
-													</select>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div className="search_option_two">
-												<div className="candidate_revew_select">
-													<select className="selectpicker w100 show-tick">
-														<option>Garages</option>
-														<option>Yes</option>
-														<option>No</option>
-														<option>Others</option>
-													</select>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div className="search_option_two">
-												<div className="candidate_revew_select">
-													<select className="selectpicker w100 show-tick">
-														<option>Year built</option>
-														<option>2013</option>
-														<option>2014</option>
-														<option>2015</option>
-														<option>2016</option>
-														<option>2017</option>
-														<option>2018</option>
-														<option>2019</option>
-														<option>2020</option>
-													</select>
-												</div>
-											</div>
-										</li>
-										<li className="min_area style2 list-inline-item">
-										    <div className="htmlForm-group">
-										    	<input type="text" className="htmlForm-control" id="exampleInputName2" placeholder="Min Area"></input>
-										    </div>
-										</li>
-										<li className="max_area list-inline-item">
-										    <div className="htmlForm-group">
-										    	<input type="text" className="htmlForm-control" id="exampleInputName3" placeholder="Max Area"></input>
-										    </div>
-										</li>
-										<li>
-										  	<div id="accordion" className="panel-group">
-											    <div className="panel">
-											      	<div className="panel-heading">
-												      	<h4 className="panel-title">
-												        	<a href="#panelBodyRating" className="accordion-toggle link" data-toggle="collapse" data-parent="#accordion"><i className="flaticon-more"></i> Advanced features</a>
-												        </h4>
-											      	</div>
-												    <div id="panelBodyRating" className="panel-collapse collapse">
-												        <div className="panel-body row">
-												      		<div className="col-lg-12">
-												                <ul className="ui_kit_checkbox selectable-list float-left fn-400">
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck1"></input>
-																			<label className="custom-control-label" htmlFor="customCheck1">Air Conditioning</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck4"></input>
-																			<label className="custom-control-label" htmlFor="customCheck4">Barbeque</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck10"></input>
-																			<label className="custom-control-label" htmlFor="customCheck10">Gym</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck5"></input>
-																			<label className="custom-control-label" htmlFor="customCheck5">Microwave</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck6"></input>
-																			<label className="custom-control-label" htmlFor="customCheck6">TV Cable</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck2"></input>
-																			<label className="custom-control-label" htmlFor="customCheck2">Lawn</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck11"></input>
-																			<label className="custom-control-label" htmlFor="customCheck11">Refrigerator</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck3"></input>
-																			<label className="custom-control-label" htmlFor="customCheck3">Swimming Pool</label>
-																		</div>
-												                	</li>
-												                </ul>
-												                <ul className="ui_kit_checkbox selectable-list float-right fn-400">
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck12"></input>
-																			<label className="custom-control-label" htmlFor="customCheck12">WiFi</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck14"></input>
-																			<label className="custom-control-label" htmlFor="customCheck14">Sauna</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck7"></input>
-																			<label className="custom-control-label" htmlFor="customCheck7">Dryer</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck9"></input>
-																			<label className="custom-control-label" htmlFor="customCheck9">Washer</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck13"></input>
-																			<label className="custom-control-label" htmlFor="customCheck13">Laundry</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck8"></input>
-																			<label className="custom-control-label" htmlFor="customCheck8">Outdoor Shower</label>
-																		</div>
-												                	</li>
-												                	<li>
-																		<div className="custom-control custom-checkbox">
-																			<input type="checkbox" className="custom-control-input" id="customCheck15"></input>
-																			<label className="custom-control-label" htmlFor="customCheck15">Window Coverings</label>
-																		</div>
-												                	</li>
-												                </ul>
-													        </div>
-												        </div>
-												    </div>
-											    </div>
-											</div>
-										</li>
-										<li>
-											<div className="search_option_button">
-											    <button type="submit" className="btn btn-block btn-thm">Search</button>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<div className="row">
 				<div className="col-lg-6">
 					<div className="breadcrumb_content style2 mb0-991">
@@ -344,24 +88,26 @@ export default function Home() {
 							</div>
 							<div className="col-sm-12 col-md-8 col-lg-8 col-xl-7">
 								<div className="right_area text-right tac-xsd">
-									<ul>
-										<li className="list-inline-item"><span className="stts" style={{marginRight: '10px'}}>Статус:</span>
-											<select className="selectpicker show-tick">
-												<option>Все</option>
-												<option>Recent</option>
-												<option>Old Review</option>
-											</select>
-										</li>
-										<li className="list-inline-item" ><span className="shrtby" style={{marginRight: '10px'}}>Сортировать:</span>
-											<select className="selectpicker show-tick">
-												<option>Featured First</option>
-												<option>Featured 2nd</option>
-												<option>Featured 3rd</option>
-												<option>Featured 4th</option>
-												<option>Featured 5th</option>
-											</select>
-										</li>
-									</ul>
+								<FormControl fullWidth sx={{my:1.5, width: 200}} size="small"> 
+									<InputLabel id="demo-simple-select-label" sx={{fontSize: 14}} >Сортировка</InputLabel>
+									<Select
+										sx={{fontSize: 14}}
+										labelId="demo-simple-select-label"
+										id="demo-simple-select"
+										value={kind}
+										label="Сортировка"
+										
+										// onChange={handleChangeRooms}
+										// multiple
+									>
+										<MenuItem value={1}>1</MenuItem>
+										<MenuItem value={2}>2</MenuItem>
+										<MenuItem value={3}>3</MenuItem>
+										<MenuItem value={4}>4</MenuItem>
+										<MenuItem value={5}>5</MenuItem>
+										<MenuItem value={6}>6</MenuItem>
+									</Select>
+								</FormControl>
 								</div>
 							</div>
 						</div>
@@ -369,9 +115,9 @@ export default function Home() {
 					<div className="row">
 						
 						{
-                            [1,2,3,4,5,6,7,8,9,10].map(item => (
-                                <div key={item} className="col-md-6 col-lg-6">
-                                    <VariantCard disableArrows={false}/>
+                            data?.rows?.map(item => (
+                                <div key={item.id} className="col-md-6 col-lg-6">
+                                    <VariantCard object={item} disableArrows={false}/>
                                 </div>
                             ))
                         }
@@ -400,8 +146,8 @@ export default function Home() {
 				<div className="col-lg-4 col-xl-4">
 					<div className="sidebar_listing_grid1 dn-991">
 						<FilterWidget/>
-						<PopularVariantsWidget/>
-						<CategoriesWidget/>
+						<PopularVariantsWidget objects={dataPopular}/>
+						{/* <CategoriesWidget/> */}
 						<RecentVariantsWidget/>
 					</div>
 				</div>
@@ -413,4 +159,17 @@ export default function Home() {
 <a className="scrollToHome text-thm3" href="#"><i className="flaticon-arrows"></i></a>
 </div>
   )
+}
+export async function getServerSideProps() {
+    const res = await fetch(`http://localhost:5000/objects/`)
+    const data = await res.json()
+
+    const resPopular = await fetch(`http://localhost:5000/objects?featured=true`)
+    const dataPopular = await resPopular.json()
+
+    return {
+        props: {
+            data, dataPopular
+        }
+    }
 }

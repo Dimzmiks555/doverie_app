@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function VariantCard({disableArrows, object}) {
     return (
             <div className="feat_property home7 style4">
-                <div className="thumb" style={{minHeight: 300}}>
+                <div className="thumb" style={{minHeight: 220}}>
                     {
                         disableArrows == true ? (
                             <Link href={`/catalog/${object?.id}`}>
