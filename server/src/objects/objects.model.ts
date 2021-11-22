@@ -40,7 +40,7 @@ export class ObjectsModel extends Model {
     @Column({type: DataType.INTEGER})
     square: number;
     
-    @Column({type: DataType.STRING, defaultValue: 'active'})
+    @Column({type: DataType.STRING, defaultValue: '1'})
     status: string;
 
     @Column({type: DataType.BOOLEAN, defaultValue: false})

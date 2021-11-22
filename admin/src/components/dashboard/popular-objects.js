@@ -95,11 +95,11 @@ export const PopularObjects = (props) => (
               <TableCell>
                 Адрес
               </TableCell>
-              <TableCell sortDirection="desc">
-                Date
-              </TableCell>
               <TableCell>
-                Status
+                Статус
+              </TableCell>
+              <TableCell sortDirection="desc">
+                Дата создания
               </TableCell>
             </TableRow>
           </TableHead>
@@ -118,16 +118,18 @@ export const PopularObjects = (props) => (
                     г. {order.city} ул. {order.street} д. {order.house}  {order.room}
                     </TableCell>
                     <TableCell>
-                    {order.createdAt}
-                    </TableCell>
-                    <TableCell>
                     <SeverityPill
-                        color={(order.status === 'active' && 'success')
-                        || (order.status === 'refunded' && 'error')
+                        color={(order.status === '1' && 'success')
+                        || (order.status === '0' && 'error')
                         || 'warning'}
                     >
-                        {order.status}
+                        {(order.status === '1' && 'Активно')
+                        || (order.status === '0' && 'Не активно')
+                        || 'Ошибка'}
                     </SeverityPill>
+                    </TableCell>
+                    <TableCell>
+                    {new Date(order.createdAt)?.toLocaleDateString()}
                     </TableCell>
                 </TableRow>
               </Link>

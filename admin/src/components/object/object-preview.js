@@ -22,6 +22,10 @@ import {
   TextField,
   Typography
 } from '@mui/material';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { getInitials } from '../../utils/get-initials';
 import UploadImages from './upload-images';
 import { useRouter } from 'next/router';
@@ -133,6 +137,21 @@ export const ObjectPreview = ({ data, ...rest }) => {
       
       console.log( id)
   }
+
+  function handleDeleteImage(e, id) {
+    fetch(`http://localhost:5000/images/${id}`, {
+      method: 'DELETE',
+      // body: JSON.stringify({main: true}),
+      // headers: {
+      //   "Content-Type": "application/json",
+      //   "Accept": "application/json",
+      // }
+    })
+    .then(d => {
+      console.log(d)
+      router.reload()
+    });
+  }
     
 
 
@@ -158,6 +177,8 @@ export const ObjectPreview = ({ data, ...rest }) => {
             </Typography>
             <FormGroup>
               <FormControlLabel control={<Switch defaultChecked={data?.featured} {...register('featured', { required: false })}/>} label="Популярный объект" />
+              
+              <FormControlLabel control={<Switch defaultChecked={+data?.status} {...register('status', { required: false })}/>} label="В продаже" />
             </FormGroup>
             <Box sx={{ m: 1 }}>
                 {/* <Button
@@ -192,17 +213,46 @@ export const ObjectPreview = ({ data, ...rest }) => {
             </Box>
             <Typography variant='h5'>Характеристики</Typography>
             <Box sx={{py: 5, display: 'flex', justifyContent: 'space-between'}}>
-                <TextField {...register('type', { required: false })} defaultValue={data?.type} label="Тип" />
-                <TextField {...register('kind', { required: false })} defaultValue={data?.kind} label="Вид" />
+                <FormControl sx={{ minWidth: 200 }}>
+                    <InputLabel id="demo-controlled-open-select-label">Тип</InputLabel>
+                    <Select
+                      labelId="demo-controlled-open-select-label"
+                      id="demo-controlled-open-select"
+                      label="Тип"
+                      defaultValue={data?.type}
+                      {...register('type', { required: false })}
+                    >
+                      <MenuItem value={'Квартира'}>Квартира</MenuItem>
+                      <MenuItem value={'Дом'}>Дом</MenuItem>
+                    </Select>
+                </FormControl>
+                {/* <TextField  defaultValue={data?.type} label="Тип" /> */}
+                <FormControl sx={{ minWidth: 200 }}>
+                    <InputLabel id="demo-controlled-open-select-label">Вид</InputLabel>
+                    <Select
+                      labelId="demo-controlled-open-select-label"
+                      id="demo-controlled-open-select"
+                      label="Вид"
+                      defaultValue={data?.kind}
+                      {...register('kind', { required: false })}
+                    >
+                      <MenuItem value={'Аренда'}>Аренда</MenuItem>
+                      <MenuItem value={'Продажа'}>Продажа</MenuItem>
+                    </Select>
+                </FormControl>
+                {/* <TextField  defaultValue={} label="" /> */}
                 <TextField {...register('square', { required: false })} defaultValue={data?.square} label="Площадь" />
                 <TextField {...register('rooms', { required: false })} defaultValue={data?.rooms} label="Количество комнат" />
                 <TextField {...register('price', { required: false })} defaultValue={data?.price} label="Цена" />
             </Box>
             <Typography variant='h5'>Изображения</Typography>
-            <Box>
+            <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
                 {
                   data?.images?.map(image => (
-                    <img width={200} height={200} style={{objectFit: 'scale-down', margin: 20, cursor: 'pointer', border: `2px solid ${image.main && 'green'}`}} src={`http://localhost:5000/${image.src}` } onClick={e => {handleMain(image.id)}}></img>
+                    <Box sx={{m: 2, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                      <img width={200} height={200} style={{objectFit: 'scale-down', margin: 20, cursor: 'pointer', border: `2px solid ${image.main && 'green'}`}} src={`http://localhost:5000/${image.src}` } onClick={e => {handleMain(image.id)}}></img>
+                      <Button fullWidth color='error' variant="contained" onClick={e => {handleDeleteImage(e, image?.id)}}>Удалить</Button>
+                    </Box >
                   ))
                 }
             </Box>

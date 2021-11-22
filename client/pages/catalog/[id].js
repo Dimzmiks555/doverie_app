@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import CategoriesWidget from '../../components/CategoriesWidget/index.js';
 import DarkFooter from '../../components/DarkFooter/index.js';
 import Footer from '../../components/Footer/index.js';
@@ -7,6 +7,12 @@ import Header from '../../components/Header/index.js';
 import PopularVariantsWidget from '../../components/PopularVariantsWidget/index.js';
 import RecentVariantsWidget from '../../components/RecentVariantsWidget/index.js';
 import useScript from '../../hooks/useScript.js';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Button from '@mui/material/Button';
 
 export default function CatalogVariant({ data, dataPopular }) {
 
@@ -38,11 +44,43 @@ export default function CatalogVariant({ data, dataPopular }) {
     // useScript('/js/jquery-scrolltofixed-min.js');
     useScript('/js/script.js');
 
+    const [open, setOpen] = useState(false);
+
+    const handleModal = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+
+    // function handleModal(e) {
+
+    // }
 
     return (
         <>
         <Header/>
-
+            <Dialog
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+        >
+            <DialogTitle id="alert-dialog-title">
+            <h4><b>Объект № {data?.id}</b></h4>
+            </DialogTitle>
+            <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+                
+                <h4><b>{"+7 (900) 930-69-78 - Светлана Ивановна"}</b></h4>
+                Позвоните по этому номеру, назовите номер объекта и менеджер сообщит Вам всю интересующую Вас информацию!
+            </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+            <Button onClick={handleClose}>Закрыть</Button>
+            </DialogActions>
+        </Dialog>
         <section className="listing-title-area">
             <div className="container">
                 
@@ -52,19 +90,19 @@ export default function CatalogVariant({ data, dataPopular }) {
                             <h2>{data.rooms}-комнат. {data?.type?.toLowerCase()}</h2>
                             <p>{data?.street} улица, {data?.city} </p>
                         </div>
-                        <div className="dn db-991">
+                        {/* <div className="dn db-991">
                             <div id="main2">
                                 <span id="open2" className="flaticon-filter-results-button filter_open_btn style3"> Show Filter</span>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="col-lg-5 col-xl-4">
-                        <div className="single_property_social_share">
-                            <div className="price float-left fn-400">
+                        <div className="single_property_social_share" >
+                            <div className="price float-left fn-400" style={{marginTop: 6}}>
                                 <h2>{data.price?.toLocaleString()} ₽</h2>
                             </div>
                             <div className="spss style2 mt20 text-right tal-400">
-                                <button type="button" style={{background: '#00B060', color: '#fff', minWidth: 160}} className="btn dbxshad btn-lg btn-thm circle">Позвонить</button>
+                                <button onClick={handleModal} type="button" style={{background: '#00B060', color: '#fff', minWidth: 160}} className="btn dbxshad btn-lg btn-thm circle">Позвонить</button>
                             </div>
                         </div>
                     </div>
@@ -74,7 +112,13 @@ export default function CatalogVariant({ data, dataPopular }) {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="spls_style_two mb30-520" style={{display: 'flex', justifyContent: 'center'}}>
-                                    <a className="popup-img" href={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`}><img className="img-fluid" style={{maxHeight: 600, objectFit: 'scale-down', borderRadius: '10px'}} src={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`} alt="1.jpg"></img></a>
+                                    {
+                                        data?.images?.length > 0 ? (
+                                            <a className="popup-img" href={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`}><img className="img-fluid" style={{maxHeight: 600, objectFit: 'scale-down', borderRadius: '10px'}} src={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`} alt="1.jpg"></img></a>
+                                        ) : (
+                                            <img src='/noPhoto.png'></img>
+                                        )
+                                    }
                                 </div>
                             </div>
                         </div>

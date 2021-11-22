@@ -145,7 +145,7 @@ export const CustomerListResults = ({ objects, ...rest }) => {
                     {new Date(object.createdAt).toLocaleDateString()}
                   </TableCell>
                   <TableCell>
-                    {object.status == 'active' ? 'Активно' : 'Не активно'}
+                    {object.status == '1' ? 'Активно' : 'Не активно'}
                   </TableCell>
                 </TableRow>
               ))}

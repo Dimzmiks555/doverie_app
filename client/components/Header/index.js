@@ -32,7 +32,7 @@ export default function Header() {
                             <a href="/" className="navbar_brand float-left dn-smd">
                                 <img  style={{height: 50}} className="logo1 img-fluid" src="/images/header-logo2.svg" alt="header-logo.png"></img>
                                 <img  style={{height: 50}} className="logo2 img-fluid" src="/images/header-logo2.svg" alt="header-logo2.png"></img>
-                                <span style={{color: '#229922'}}>Доверие</span>
+                                <h2 style={{color: '#229922', fontWeight: 'bold', marginLeft: 10}}>Доверие <p style={{color: '#333', fontSize: 10}}>АГЕНСТВО НЕДВИЖИМОСТИ</p></h2>
                             </a>
                         </Link>
                         {/* <!-- Responsive Menu Structure-->

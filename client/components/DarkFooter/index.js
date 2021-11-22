@@ -33,8 +33,12 @@ export default function DarkFooter() {
                         </div>
                     </div>
                     <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                        <div className="footer_social_widget">
-                            <h4>Подписаться</h4>
+                        <div className="footer_social_widget" style={{display: 'flex', marginBottom: 2}}>
+                            
+                        <img  style={{height: 50, marginRight: 10}} className="logo1 img-fluid" src="/images/header-logo2.svg" alt="header-logo.png"></img>
+                        <h2 style={{color: '#fff', fontWeight: 'bold', marginTop: 0}}>Доверие
+                        <p style={{color: '#fff', fontSize: 10}}>АГЕНСТВО НЕДВИЖИМОСТИ</p></h2>
+                            {/* <h4>Подписаться</h4>
                             <form className="footer_mailchimp_form">
                                 <div className="form-row align-items-center">
                                     <div className="col-auto">
@@ -44,9 +48,12 @@ export default function DarkFooter() {
                                         <button type="submit" className="btn btn-primary mb-2"><i className="fa fa-angle-right"></i></button>
                                     </div>
                                 </div>
-                            </form>
+                            </form> */}
                         </div>
                     </div>
+                    
+                    
+                    {/* <img  style={{height: 50}} className="logo2 img-fluid" src="/images/header-logo2.svg" alt="header-logo2.png"></img> */}
                 </div>
             </div>
         </section>

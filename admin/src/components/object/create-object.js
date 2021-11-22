@@ -17,9 +17,14 @@ import {
   TextField,
   Typography
 } from '@mui/material';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { getInitials } from '../../utils/get-initials';
 import UploadImages from './upload-images';
 import { useForm } from 'react-hook-form'
+import router from 'next/router';
 
 export const CreateObjectMain = ({ customers, ...rest }) => {
 
@@ -38,6 +43,7 @@ export const CreateObjectMain = ({ customers, ...rest }) => {
     .then(res => res.json())
     .then(data => {
       console.log(data)
+      router.push('/objects')
     })
     // { username: 'test', email: 'test', password: 'test' }
   }
@@ -94,8 +100,33 @@ export const CreateObjectMain = ({ customers, ...rest }) => {
             </Box>
             <Typography variant='h5'>Характеристики</Typography>
             <Box sx={{py: 5, display: 'flex', justifyContent: 'space-between'}}>
-                <TextField {...register('type', { required: true })} label="Тип" />
-                <TextField {...register('kind', { required: true })} label="Вид" />
+                <FormControl sx={{ minWidth: 200 }}>
+                    <InputLabel id="demo-controlled-open-select-label">Тип</InputLabel>
+                    <Select
+                      labelId="demo-controlled-open-select-label"
+                      id="demo-controlled-open-select"
+                      label="Тип"
+                      // defaultValue={data?.type}
+                      {...register('type', { required: false })}
+                    >
+                      <MenuItem value={'Квартира'}>Квартира</MenuItem>
+                      <MenuItem value={'Дом'}>Дом</MenuItem>
+                    </Select>
+                </FormControl>
+                {/* <TextField  defaultValue={data?.type} label="Тип" /> */}
+                <FormControl sx={{ minWidth: 200 }}>
+                    <InputLabel id="demo-controlled-open-select-label">Вид</InputLabel>
+                    <Select
+                      labelId="demo-controlled-open-select-label"
+                      id="demo-controlled-open-select"
+                      label="Вид"
+                      // defaultValue={data?.kind}
+                      {...register('kind', { required: false })}
+                    >
+                      <MenuItem value={'Аренда'}>Аренда</MenuItem>
+                      <MenuItem value={'Продажа'}>Продажа</MenuItem>
+                    </Select>
+                </FormControl>
                 <TextField {...register('square', { required: true })} label="Площадь" />
                 <TextField {...register('rooms', { required: true })} label="Количество комнат" />
                 <TextField {...register('price', { required: true })} label="Цена" />

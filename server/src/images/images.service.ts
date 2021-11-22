@@ -38,7 +38,7 @@ export class ImagesService {
     return await this.imagesModel.update(updateImageDto, {where: {id}})
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} image`;
+  async remove(id: number) {
+    return await this.imagesModel.destroy({where: {id}})
   }
 }
