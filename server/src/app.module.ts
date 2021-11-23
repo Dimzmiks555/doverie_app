@@ -22,7 +22,8 @@ import { join } from 'path';
       password: 'root',
       database: 'doverie',
       models: [ObjectsModel, ImageModel ],
-      autoLoadModels: true
+      autoLoadModels: true,
+      synchronize: true,
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname,'..', 'uploads'),
