@@ -9,6 +9,8 @@ import { ImagesModule } from './images/images.module';
 import { ImageModel } from './images/entities/image.entity';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { GalleryModule } from './gallery/gallery.module';
+import { GalleryModel } from './gallery/entities/gallery.entity';
 
 @Module({
   controllers: [AppController],
@@ -21,15 +23,16 @@ import { join } from 'path';
       username: 'root',
       password: 'root',
       database: 'doverie',
-      models: [ObjectsModel, ImageModel ],
+      models: [ObjectsModel, ImageModel, GalleryModel ],
       autoLoadModels: true,
-      synchronize: true,
+      // synchronize: true,
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname,'..', 'uploads'),
     }),
     ObjectsModule,
-    ImagesModule
+    ImagesModule,
+    GalleryModule
   ],
 })
 export class AppModule {}

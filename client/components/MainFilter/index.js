@@ -9,9 +9,9 @@ import Link from 'next/link'
 export default function MainFilter() {
 
     const [type, setType] = useState('Квартира');
-    const [kind, setKind] = useState('Купить');
+    const [kind, setKind] = useState('Продажа');
     const [priceTo, setPriceTo] = useState(null);
-    const [rooms, setRooms] = useState([1]);
+    const [rooms, setRooms] = useState(['1','2','3']);
     const [priceFrom, setPriceFrom] = useState(null);
 
     const handleChangeType = (event) => {
@@ -34,6 +34,7 @@ export default function MainFilter() {
           // On autofill we get a the stringified value.
           typeof value === 'string' ? value.split(',') : value,
         );
+        console.log(rooms)
       };
 
     
@@ -42,10 +43,10 @@ export default function MainFilter() {
     return (
         <div className="home_adv_srch_opt home3">
             <ul className="nav nav-pills" id="pills-tab" role="tablist">
-                <li className="nav-item" onClick={e => {setKind('Купить')}}>
+                <li className="nav-item" onClick={e => {setKind('Продажа')}}>
                     <a className="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Купить</a>
                 </li>
-                <li className="nav-item" onClick={e => {setKind('Снять')}}>
+                <li className="nav-item" onClick={e => {setKind('Аренда')}}>
                     <a className="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Снять</a>
                 </li>
             </ul>
@@ -81,12 +82,12 @@ export default function MainFilter() {
                                         onChange={handleChangeRooms}
                                         multiple
                                     >
-                                        <MenuItem value={1}>1</MenuItem>
-                                        <MenuItem value={2}>2</MenuItem>
-                                        <MenuItem value={3}>3</MenuItem>
-                                        <MenuItem value={4}>4</MenuItem>
-                                        <MenuItem value={5}>5</MenuItem>
-                                        <MenuItem value={6}>6</MenuItem>
+                                        <MenuItem value={"1"}>1</MenuItem>
+                                        <MenuItem value={"2"}>2</MenuItem>
+                                        <MenuItem value={"3"}>3</MenuItem>
+                                        <MenuItem value={"4"}>4</MenuItem>
+                                        <MenuItem value={"5"}>5</MenuItem>
+                                        <MenuItem value={"6"}>6</MenuItem>
                                     </Select>
                                 </FormControl>
                             </li>
@@ -100,7 +101,7 @@ export default function MainFilter() {
                                 <div className="search_option_button" style={{marginLeft: 'auto'}}>
                                 {
                                     rooms?.length > 0 ? (
-                                        <Link href={`/catalog?type=${type}&kind=${kind}&rooms=${rooms}&priceFrom=${priceFrom}&priceTo=${priceTo}`}><button type="submit" style={{marginLeft: 'auto'}} className="btn btn-thm3">Поиск</button></Link>
+                                        <Link href={`/catalog?type=${type}&kind=${kind}&rooms=${rooms.join(',')}&priceFrom=${priceFrom}&priceTo=${priceTo}`}><button type="submit" style={{marginLeft: 'auto'}} className="btn btn-thm3">Поиск</button></Link>
                                     ) : (
                                         <button type="submit" style={{marginLeft: 'auto', background: '#ccc', cursor: 'default'}} className="btn btn-thm3">Поиск</button>
                                     )
@@ -159,7 +160,7 @@ export default function MainFilter() {
                                 <div className="search_option_button" style={{marginLeft: 'auto'}}>
                                 {
                                     rooms?.length > 0 ? (
-                                        <Link href={`/catalog?type=${type}&kind=${kind}&rooms=${rooms}&priceFrom=${priceFrom}&priceTo=${priceTo}`}><button type="submit" style={{marginLeft: 'auto'}} className="btn btn-thm3">Поиск</button></Link>
+                                        <Link href={`/catalog?type=${type}&kind=${kind}&rooms=${encodeURIComponent(rooms.join(','))}&priceFrom=${priceFrom}&priceTo=${priceTo}`}><button type="submit" style={{marginLeft: 'auto'}} className="btn btn-thm3">Поиск</button></Link>
                                     ) : (
                                         <button type="submit" style={{marginLeft: 'auto', background: '#ccc', cursor: 'default'}} className="btn btn-thm3">Поиск</button>
                                     )

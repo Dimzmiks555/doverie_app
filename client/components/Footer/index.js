@@ -16,7 +16,7 @@ export default function Footer() {
                         <div className="footer_qlink_widget home3">
                             <h4>Информация</h4>
                             <ul className="list-unstyled">
-                                <li><a href="#">О нас</a></li>
+                                <li><Link href="/about"><a href="#">О нас</a></Link></li>
                                 <li><a href="#">Правила & Условия</a></li>
                             </ul>
                         </div>
@@ -75,9 +75,9 @@ export default function Footer() {
                         <div className="footer_menu_widget home3">
                             <ul>
                                 <li className="list-inline-item"><Link href='/'><a href="#">Главная</a></Link></li>
-                                <li className="list-inline-item"><Link href='/'><a href="#">О нас</a></Link></li>
-                                <li className="list-inline-item"><Link href='/'><a href="#">Галерея</a></Link></li>
-                                <li className="list-inline-item"><Link href='/'><a href="#">Контакты</a></Link></li>
+                                <li className="list-inline-item"><Link href='/about'><a href="#">О нас</a></Link></li>
+                                <li className="list-inline-item"><Link href='/gallery'><a href="#">Галерея</a></Link></li>
+                                <li className="list-inline-item"><Link href='/contacts'><a href="#">Контакты</a></Link></li>
                             </ul>
                         </div>
                     </div>

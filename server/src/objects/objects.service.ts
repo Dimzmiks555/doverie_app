@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
+import { Op, OrderItem } from 'sequelize';
 import { ImageModel } from 'src/images/entities/image.entity';
 import { CreateObjectDto } from './dto/create-object.dto';
 import { GetObjectsDto } from './dto/get-object.dto';
@@ -20,12 +21,46 @@ export class ObjectsService {
 
   async findAll(query: GetObjectsDto): Promise<Object> {
 
-    const {featured} = query
+    const {featured, type, kind, priceFrom, priceTo, status, rooms, area, limit, page, squareFrom, squareTo, order, last} = query
 
-    let options: any = {
-    };
+    let options: any = {};
 
-    if (featured) {options.featured = true}
+    let orderFilter : OrderItem = ['createdAt', 'DESC']
+
+    if (type) {options.type = type}
+    console.log(last)
+    if (last) {options.id = {[Op.in]: last.split(',')}  }
+    if (kind) {options.kind = kind}
+    if (status) {options.status = status}
+    if (area) {options.area = area}
+
+    if (priceFrom &&  priceFrom != 'null') {options.price = {[Op.gte]: +priceFrom}}
+    if (priceTo &&  priceTo != 'null') {options.price = {[Op.lte]: +priceTo}}
+    
+    if (priceFrom && priceTo && priceFrom != 'null' && priceTo != 'null') {options.price = {[Op.between]: [+priceFrom, +priceTo]}}
+
+    if (squareFrom &&  squareFrom != 'null') {options.square = {[Op.gte]: +squareFrom}}
+    if (squareTo &&  squareTo != 'null') {options.square = {[Op.lte]: +squareTo}}
+    
+    if (squareFrom && squareTo && squareFrom != 'null' && squareTo != 'null') {options.square = {[Op.between]: [+squareFrom, +squareTo]}}
+    console.log(query)
+
+
+    if (rooms) {
+
+      let roomsFilter = rooms.split(',')
+
+      options.rooms = {[Op.in]: roomsFilter}
+    }
+    let limitPage = 10
+    let offset = 0
+
+    if (page) { offset = limit * (page - 1)}
+
+    if (order) { orderFilter = ['price', order]}
+    
+    if (limit) { limitPage = limit}
+
     console.log(featured)
 
     return this.objectsModel.findAndCountAll({
@@ -33,7 +68,9 @@ export class ObjectsService {
         ImageModel
       ],
       where: options,
-      order: [['createdAt', 'DESC']]
+      limit: limit,
+      order: [orderFilter],
+      offset: offset
     });
   }
 

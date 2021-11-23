@@ -16,12 +16,17 @@ import PopularVariantsSide from '../components/PopularVariantsWidget/index.js';
 import RecentVariantsWidget from '../components/RecentVariantsWidget/index.js';
 import VariantCard from '../components/VariantCard/index.js';
 import useScript from '../hooks/useScript.js';
+import { useRouter } from 'next/router';
+import { Pagination } from '@mui/material';
 
 
 export default function Home({data, dataPopular}) {
 
 
-	const [kind, setKind] = useState('');
+	const router = useRouter()
+	const [order, setOrder] = useState(router?.query?.order);
+	const [page, setPagination] = useState(1);
+	
 
   useScript('/js/jquery-3.3.1.js');
   useScript('/js/jquery-migrate-3.0.0.min.js');
@@ -40,6 +45,24 @@ export default function Home({data, dataPopular}) {
   useScript('/js/timepicker.js');
 //   useScript('/js/jquery-scrolltofixed-min.js');
   useScript('/js/script.js');
+
+	// console.log(url)
+
+
+	const handleChangeOrder = (event) => {
+        setOrder(event.target.value);
+        router.query?.order = event.target.value
+
+        router.push({
+            pathname: '/catalog',
+            query: router.query
+        })
+
+    };
+
+	const handlePagination = (event, value) => {
+		setPage(value);
+	};
 
 
   return (
@@ -83,7 +106,7 @@ export default function Home({data, dataPopular}) {
 						<div className="grid_list_search_result">
 							<div className="col-sm-12 col-md-4 col-lg-4 col-xl-5">
 								<div className="left_area tac-xsd">
-									<p>Найдено: 9</p>
+									<p>Найдено: {data?.count}</p>
 								</div>
 							</div>
 							<div className="col-sm-12 col-md-8 col-lg-8 col-xl-7">
@@ -94,18 +117,15 @@ export default function Home({data, dataPopular}) {
 										sx={{fontSize: 14}}
 										labelId="demo-simple-select-label"
 										id="demo-simple-select"
-										value={kind}
+										value={order}
 										label="Сортировка"
 										
-										// onChange={handleChangeRooms}
+										onChange={handleChangeOrder}
 										// multiple
 									>
-										<MenuItem value={1}>1</MenuItem>
-										<MenuItem value={2}>2</MenuItem>
-										<MenuItem value={3}>3</MenuItem>
-										<MenuItem value={4}>4</MenuItem>
-										<MenuItem value={5}>5</MenuItem>
-										<MenuItem value={6}>6</MenuItem>
+										<MenuItem >По умолчанию</MenuItem>
+										<MenuItem value={'asc'}>По возрастанию</MenuItem>
+										<MenuItem value={'desc'}>По убыванию</MenuItem>
 									</Select>
 								</FormControl>
 								</div>
@@ -121,34 +141,23 @@ export default function Home({data, dataPopular}) {
                                 </div>
                             ))
                         }
+						{
+							data?.rows?.length == 0 && (
+								<h3>Объектов не найдено.</h3>
+							)
+						}
 						
 						<div className="col-lg-12 mt20">
-							<div className="mbp_pagination">
-								<ul className="page_navigation">
-								    <li className="page-item disabled">
-								    	<a className="page-link" href="#" tabIndex="-1" aria-disabled="true"> <span className="flaticon-left-arrow"></span> Prev</a>
-								    </li>
-								    <li className="page-item"><a className="page-link" href="#">1</a></li>
-								    <li className="page-item active" aria-current="page">
-								    	<a className="page-link" href="#">2 <span className="sr-only">(current)</span></a>
-								    </li>
-								    <li className="page-item"><a className="page-link" href="#">3</a></li>
-								    <li className="page-item"><a className="page-link" href="#">...</a></li>
-								    <li className="page-item"><a className="page-link" href="#">29</a></li>
-								    <li className="page-item">
-								    	<a className="page-link" href="#"><span className="flaticon-right-arrow"></span></a>
-								    </li>
-								</ul>
-							</div>
+							<Pagination color='success' count={data?.count / 10} page={page} onChange={handlePagination} />
 						</div>
 					</div>
 				</div>
 				<div className="col-lg-4 col-xl-4">
 					<div className="sidebar_listing_grid1 dn-991">
-						<FilterWidget/>
+						<FilterWidget query={router.query}/>
 						<PopularVariantsWidget objects={dataPopular}/>
 						{/* <CategoriesWidget/> */}
-						<RecentVariantsWidget/>
+						<RecentVariantsWidget />
 					</div>
 				</div>
 			</div>
@@ -160,12 +169,30 @@ export default function Home({data, dataPopular}) {
 </div>
   )
 }
-export async function getServerSideProps() {
-    const res = await fetch(`http://localhost:5000/objects/`)
+export async function getServerSideProps({query}) {
+
+	let url = new URL('http://localhost:5000/objects')
+
+	// var params = {lat:35.696233, long:139.570431} // or:
+	// var params = [['lat', '35.696233'], ['long', '139.570431']]
+	// query.kind == 'Купить' ? query.kind = 'Продажа' : query.kind = 'Аренда'
+	
+	url.search = new URLSearchParams(query).toString();
+
+    const res = await fetch(url)
     const data = await res.json()
 
     const resPopular = await fetch(`http://localhost:5000/objects?featured=true`)
     const dataPopular = await resPopular.json()
+
+	// let lastItems;
+
+	// if (typeof window != 'undefined') {
+	// 	lastItems = localStorage.getItem('last')
+	// }
+	
+    // const resLast = await fetch(`http://localhost:5000/objects?last=${lastItems}`)
+    // const dataLast = await resLast.json()
 
     return {
         props: {

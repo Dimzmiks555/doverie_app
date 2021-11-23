@@ -1,4 +1,5 @@
 import { TextField } from '@mui/material';
+import Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
 import CheapestVariants from '../components/CheapestVariants/index.js';
@@ -7,6 +8,7 @@ import Header from '../components/Header/index.js';
 import MainFilter from '../components/MainFilter/index.js';
 import PopularVariantsSlider from '../components/PopularVariantsSlider/index.js';
 import useScript from '../hooks/useScript.js';
+import DarkFooter from '../components/DarkFooter/index.js';
 
 
 function Contacts({objects, objectsFeatured}) {
@@ -26,7 +28,7 @@ function Contacts({objects, objectsFeatured}) {
     useScript('/js/script.js');
 
   return (
-    <div className="wrapper maxw1600 m0a">
+    <div className="wrapper">
 
 	{/* <!-- Main Header Nav --> */}
 	<Header/>
@@ -41,10 +43,10 @@ function Contacts({objects, objectsFeatured}) {
 				<div class="col-xl-6">
 					<div class="breadcrumb_content">
 						<ol class="breadcrumb">
-						    <li class="breadcrumb-item"><a href="#">Home</a></li>
-						    <li class="breadcrumb-item active" aria-current="page">Contact</li>
+						    <li class="breadcrumb-item"><Link href='/'><a href="#">Главная</a></Link></li>
+						    <li class="breadcrumb-item active" aria-current="page">Контакты</li>
 						</ol>
-						<h4 class="breadcrumb_title">Contact Us</h4>
+						<h4 class="breadcrumb_title">Контакты</h4>
 					</div>
 				</div>
 			</div>
@@ -58,7 +60,7 @@ function Contacts({objects, objectsFeatured}) {
 				<div class="col-lg-7 col-xl-8">
 					<div className="contact_localtion">
 						<h4 class="mb5">Отправьте нам сообщение</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida quis libero eleifend ornare. Maecenas mattis enim at arcu feugiat, sit amet blandit nisl iaculis. Donec lacus odio, malesuada eu libero sit amet, congue aliquam leo. In hac habitasse platea dictumst.</p>
+						{/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida quis libero eleifend ornare. Maecenas mattis enim at arcu feugiat, sit amet blandit nisl iaculis. Donec lacus odio, malesuada eu libero sit amet, congue aliquam leo. In hac habitasse platea dictumst.</p> */}
 			            <form class="contact_form" id="contact_form" name="contact_form" action="#" method="post" novalidate="novalidate">
 							<div class="row">
 				                <div class="col-md-6">
@@ -66,22 +68,22 @@ function Contacts({objects, objectsFeatured}) {
 				                </div>
 				                <div class="col-md-6">
 				                    <div class="form-group">
-										<TextField label="Имя" fullWidth></TextField>
+										<TextField label="Номер телефона" fullWidth></TextField>
 				                    </div>
 				                </div>
 				                <div class="col-md-6">
 				                    <div class="form-group">
-										<TextField label="Имя" fullWidth></TextField>
+										<TextField label="Электронная почта" fullWidth></TextField>
 				                    </div>
 				                </div>
 				                <div class="col-md-6">
 				                    <div class="form-group">
-										<TextField label="Имя" fullWidth></TextField>
+										<TextField label="Тема письма" fullWidth></TextField>
 									</div>
 				                </div>
 				                <div class="col-sm-12">
 		                            <div class="form-group">
-										<TextField label="Имя" multiline rows={5} fullWidth></TextField>
+										<TextField label="Сообщение" multiline rows={5} fullWidth></TextField>
 		                            </div>
 				                    <div class="form-group mb0">
 					                    <button type="button" style={{background: 'green', color: '#FFF'}} class="btn btn-lg btn-thm">Отправить</button>
@@ -94,14 +96,14 @@ function Contacts({objects, objectsFeatured}) {
 				<div class="col-lg-5 col-xl-4">
 					<div class="contact_localtion">
 						<h4>Контакты</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida quis libero eleifend ornare. habitasse platea dictumst.</p>
+						{/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida quis libero eleifend ornare. habitasse platea dictumst.</p> */}
 						<div class="content_list">
 							<h5>Адрес</h5>
-							<p>2301 Ravenswood Rd Madison, <br></br>WI 53711</p>
+							<p>город Лиски, улица Коммунистическая, <br></br>д. 12а, Рынок.</p>
 						</div>
 						<div class="content_list">
-							<h5>Phone</h5>
-							<p>(315) 905-2321</p>
+							<h5>Телефон</h5>
+							<p>+7 900-930-6978 - Светлана Ивановна</p>
 						</div>
 						<div class="content_list">
 							<h5>Электронная почта</h5>
@@ -114,155 +116,14 @@ function Contacts({objects, objectsFeatured}) {
 		<div class="container-fluid p0 mt50">
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="h600" id="map-canvas"></div>
+				<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae746873a6fe20e794bdcd47be7fc82bc1a365eac1b9c1809d860a4f9294f3ce3&amp;source=constructor" width="100%" height="600" frameborder="0"></iframe>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	{/* <!-- Our Agents --> */}
-	{/* <section id="our-agents" className="our-agents pt40 pb30">
-		<div className="container-fluid">
-			<div className="row">
-				<div className="col-lg-12">
-					<div className="main-title">
-						<h2>Our Agents</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a className="float-right" href="#">View All <span className="flaticon-next"></span></a></p>
-					</div>
-				</div>
-			</div>
-			<div className="row">
-				<div className="col-sm-6 col-md-4 col-lg-4 col-xl-2">
-					<div className="our_agent">
-						<div className="thumb">
-							<img className="img-fluid w100" src="images/team/5.jpg" alt="5.jpg"></img>
-							<div className="overylay">
-								<ul className="social_icon">
-									<li className="list-inline-item"><a href="#"><i className="fa fa-facebook"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-twitter"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-instagram"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-pinterest"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-dribbble"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-google"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div className="details">
-							<h4>Jennifer Barton</h4>
-							<p>Broker <a className="float-right" href="#">4.5 <i className="fa fa-star color-golden"></i></a></p>
-						</div>
-					</div>
-				</div>
-				<div className="col-sm-6 col-md-4 col-lg-4 col-xl-2">
-					<div className="our_agent">
-						<div className="thumb">
-							<img className="img-fluid w100" src="images/team/6.jpg" alt="6.jpg"></img>
-							<div className="overylay">
-								<ul className="social_icon">
-									<li className="list-inline-item"><a href="#"><i className="fa fa-facebook"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-twitter"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-instagram"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-pinterest"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-dribbble"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-google"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div className="details">
-							<h4>Kathleen Myers</h4>
-							<p>Agent <a className="float-right" href="#">5 <i className="fa fa-star color-golden"></i></a></p>
-						</div>
-					</div>
-				</div>
-				<div className="col-sm-6 col-md-4 col-lg-4 col-xl-2">
-					<div className="our_agent">
-						<div className="thumb">
-							<img className="img-fluid w100" src="images/team/7.jpg" alt="7.jpg"></img>
-							<div className="overylay">
-								<ul className="social_icon">
-									<li className="list-inline-item"><a href="#"><i className="fa fa-facebook"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-twitter"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-instagram"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-pinterest"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-dribbble"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-google"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div className="details">
-							<h4>Mariusz Ciesla</h4>
-							<p>Broker <a className="float-right" href="#">3.5 <i className="fa fa-star color-golden"></i></a></p>
-						</div>
-					</div>
-				</div>
-				<div className="col-sm-6 col-md-4 col-lg-4 col-xl-2">
-					<div className="our_agent">
-						<div className="thumb">
-							<img className="img-fluid w100" src="images/team/8.jpg" alt="8.jpg"></img>
-							<div className="overylay">
-								<ul className="social_icon">
-									<li className="list-inline-item"><a href="#"><i className="fa fa-facebook"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-twitter"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-instagram"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-pinterest"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-dribbble"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-google"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div className="details">
-							<h4>Helene Powers</h4>
-							<p>Broker <a className="float-right" href="#">4.5 <i className="fa fa-star color-golden"></i></a></p>
-						</div>
-					</div>
-				</div>
-				<div className="col-sm-6 col-md-4 col-lg-4 col-xl-2">
-					<div className="our_agent">
-						<div className="thumb">
-							<img className="img-fluid w100" src="images/team/9.jpg" alt="9.jpg"></img>
-							<div className="overylay">
-								<ul className="social_icon">
-									<li className="list-inline-item"><a href="#"><i className="fa fa-facebook"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-twitter"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-instagram"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-pinterest"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-dribbble"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-google"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div className="details">
-							<h4>Jade Northon</h4>
-							<p>Agent <a className="float-right" href="#">1.5 <i className="fa fa-star color-golden"></i></a></p>
-						</div>
-					</div>
-				</div>
-				<div className="col-sm-6 col-md-4 col-lg-4 col-xl-2">
-					<div className="our_agent">
-						<div className="thumb">
-							<img className="img-fluid w100" src="images/team/10.jpg" alt="10.jpg"></img>
-							<div className="overylay">
-								<ul className="social_icon">
-									<li className="list-inline-item"><a href="#"><i className="fa fa-facebook"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-twitter"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-instagram"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-pinterest"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-dribbble"></i></a></li>
-									<li className="list-inline-item"><a href="#"><i className="fa fa-google"></i></a></li>
-								</ul>
-							</div>
-						</div>
-						<div className="details">
-							<h4>Kevin Harris</h4>
-							<p>Agent <a className="float-right" href="#">3.5 <i className="fa fa-star color-golden"></i></a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> */}
 
-	<Footer/>
+	<DarkFooter/>
 <a className="scrollToHome text-thm3" href="#"><i className="flaticon-arrows"></i></a>
 </div>
   )

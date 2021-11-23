@@ -2,8 +2,50 @@ import Link from 'next/link'
 
 
 export default function VariantCard({disableArrows, object}) {
+
+    function handleLast() {
+
+        if (typeof window !== 'undefined') {
+            let lastObj = localStorage.getItem('last')
+
+            if (lastObj) {
+
+                if (JSON.parse(lastObj)?.length < 4) {
+
+                    let array = JSON.parse(lastObj)
+                    
+                    if (array.find(item => {return +item == +object.id})) {
+                    } else {
+                        array.push(object.id)
+                    }
+                    
+
+                    localStorage.setItem('last', JSON.stringify(array))
+
+                } else {
+                    let array = JSON.parse(lastObj).shift()
+
+                    if (array.find(item => {return +item == +object.id})) {
+                    } else {
+                        array.push(object.id)
+                    }
+                    localStorage.setItem('last', JSON.stringify(array))
+
+                }
+                
+                
+
+            } else {
+                localStorage.setItem('last', JSON.stringify([object?.id]))
+            }
+        }
+
+    }
+
+
+
     return (
-            <div className="feat_property home7 style4">
+            <div className="feat_property home7 style4" onClick={handleLast}>
                 <div className="thumb" style={{minHeight: 220}}>
                     {
                         disableArrows == true ? (
@@ -38,7 +80,7 @@ export default function VariantCard({disableArrows, object}) {
                         </ul>
                         
                         <Link href={`/catalog/${object?.id}`}>
-                            <a className="fp_price" href="#">1 200 000 ₽ <small></small></a>
+                            <a className="fp_price" href="#">{object?.price?.toLocaleString()} ₽ <small></small></a>
                         </Link>
                     </div>
                 </div>

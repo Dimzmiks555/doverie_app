@@ -45,15 +45,15 @@ export default function Header() {
                             </li>
                             
                             <li>
-                                <a href="#"> О нас</a>
+                                <Link href='/about'><a href="#"> О нас</a></Link>
                                 
                             </li>
                             <li>
-                                <a href="#"> Галерея</a>
+                                <Link href='/gallery'><a href="#"> Галерея</a></Link>
                                 
                             </li>
                             <li className="last">
-                                <a href="page-contact.html">Контакты</a>
+                                <Link href='/contacts'><a href="page-contact.html">Контакты</a></Link>
                             </li>
                             {/* <li className="list-inline-item list_s"><a href="#" className="btn flaticon-user" data-toggle="modal" data-target=".bd-example-modal-lg"> <span className="dn-lg text-thm3">Login/Register</span></a></li>
                             <li className="list-inline-item add_listing home2"><a href="#"><span className="flaticon-plus"></span><span className="dn-lg"> Create Listing</span></a></li> */}

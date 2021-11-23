@@ -162,3 +162,48 @@ html {
   blockquote,
   address {
     margin: 0 0 10px; }
+
+
+	.gallery_item{
+		margin-bottom: 30px;
+		position: relative;
+    text-decoration: none !important;
+	}
+	.gallery_item .gallery_overlay{
+		background-color: green;
+		border-radius: 5px;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+		-webkit-transform: scale(0);
+		-moz-transform: scale(0);
+		-o-transform: scale(0);
+		-ms-transform: scale(0);
+		transform: scale(0);
+		-webkit-transition: all 0.3s ease 0s;
+		-moz-transition: all 0.3s ease 0s;
+		-o-transition: all 0.3s ease 0s;
+		transition: all 0.3s ease 0s;
+	}
+	.gallery_item:hover .gallery_overlay{
+		-webkit-transform: scale(1.0);
+		-moz-transform: scale(1.0);
+		-o-transform: scale(1.0);
+		-ms-transform: scale(1.0);
+		transform: scale(1.0);
+	}
+	.gallery_item .gallery_overlay .icon{
+	    bottom: 0;
+	    left: 0;
+		position: absolute;
+	    right: 0;
+	    top: 35%;
+	    text-align: center;
+	}
+	.gallery_item .gallery_overlay .icon span{
+		color: #ffffff;
+		font-size: 50px;
+	}
