@@ -5344,6 +5344,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   border-radius: 8px;
   background-color: rgb(247, 247, 247);
   height: 40px;
+  margin-bottom: 10px;
   padding: 6px 25px;
   text-align: center;
 }
@@ -6932,7 +6933,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   padding-bottom: 0;
 }
 .footer_qlink_widget{
-  padding-left: 70px;
+  /* padding-left: 70px; */
 }
 .footer_about_widget h4,
 .footer_qlink_widget h4,
@@ -6941,7 +6942,8 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .footer_apps_widget h4{
   color: #ffffff;
   font-weight: bold;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .footer_about_widget.home3 h4,
 .footer_qlink_widget.home3 h4,
@@ -6997,6 +6999,9 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   margin-bottom: 15px;
   margin-right: 0;
   width: 220px;
+}
+.footer_about_widget {
+  padding: 16px;
 }
 .footer_apps_widget .app_grid .apple_btn:hover,
 .footer_apps_widget .app_grid .play_store_btn:hover{
@@ -14372,7 +14377,8 @@ a.btn.btn_error{
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 8px;
-  height: 600px;
+  height: auto;
+  background-size: cover;
 }
 .bg-img4 {
   background-attachment: scroll;

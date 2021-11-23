@@ -111,7 +111,7 @@ export default function CatalogVariant({ data, dataPopular }) {
                     <div className="col-sm-7 col-lg-8">
                         <div className="row">
                             <div className="col-lg-12">
-                                <div className="spls_style_two mb30-520" style={{display: 'flex', justifyContent: 'center'}}>
+                                <div className="spls_style_two mb30-520" style={{display: 'flex', justifyContent: 'center', marginBottom: 20}}>
                                     {
                                         data?.images?.length > 0 ? (
                                             <a className="popup-img" href={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`}><img className="img-fluid" style={{maxHeight: 600, objectFit: 'scale-down', borderRadius: '10px'}} src={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`} alt="1.jpg"></img></a>
@@ -124,7 +124,7 @@ export default function CatalogVariant({ data, dataPopular }) {
                         </div>
                     </div>
                     <div className="col-sm-5 col-lg-4">
-                        <div className="row">
+                        <div className="row gallery_item">
                             {
                                 data.images?.filter(item => {return !item.main})?.map(image => (
                                     <div className="col-sm-6 col-lg-6">

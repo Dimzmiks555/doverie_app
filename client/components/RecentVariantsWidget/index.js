@@ -31,7 +31,7 @@ export default function RecentVariantsWidget({objects}) {
                 data?.map(item => (
                     <Link href={`/catalog/${item?.id}`}>
                         <div style={{cursor: 'pointer'}}  className="media">
-                            <img className="align-self-start mr-3" src="/images/blog/fls1.jpg" alt="fls1.jpg"></img>
+                            <img className="align-self-start mr-3" style={{height: 80, width: 90, borderRadius: 6, objectFit: 'cover'}} src={`http://localhost:5000/${item?.images?.[0]?.src}`} alt="fls1.jpg"></img>
                             <div className="media-body">
                                 <a><h5 className="mt-0 post_title">{item?.rooms}-х комн. {item?.type}</h5></a>
                                 <a href="#">{item?.price?.toLocaleString()} ₽</a>
