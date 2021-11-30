@@ -24,7 +24,6 @@ export class ObjectsService {
     const {featured, type, kind, priceFrom, priceTo, status, rooms, area, limit, page, squareFrom, squareTo, order, last} = query
 
     let options: any = {
-      featured: false
     };
 
     let orderFilter : OrderItem = ['createdAt', 'DESC']
