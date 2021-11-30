@@ -28,6 +28,8 @@ import router from 'next/router';
 
 export const CreateObjectMain = ({ customers, ...rest }) => {
 
+  console.log(process.env.API_HOST)
+
   const { register, handleSubmit } = useForm();
 
   function onSubmit(data) {
