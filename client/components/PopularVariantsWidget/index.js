@@ -12,7 +12,7 @@ export default function PopularVariantsWidget({objects}) {
                                 <div className="feat_property home7">
                                     <div className="thumb">
                                     <Link href={`/catalog/${item?.id}`}>
-                                        <img className="img-whp" src={`${process.env.API_HOST}/${item?.images?.[0]?.src}`} alt="fp4.jpg"></img>
+                                        <img className="img-whp" src={`${process.env.NEXT_PUBLIC_API_HOST}/${item?.images?.[0]?.src}`} alt="fp4.jpg"></img>
                                     </Link>
                                         <div className="thmb_cntnt">
                                             <ul className="tag mb0">

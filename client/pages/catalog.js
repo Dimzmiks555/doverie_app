@@ -171,7 +171,7 @@ export default function Home({data, dataPopular}) {
 }
 export async function getServerSideProps({query}) {
 
-	let url = new URL(`${process.env.API_HOST}/objects`)
+	let url = new URL(`${process.env.NEXT_PUBLIC_API_HOST}/objects`)
 
 	// var params = {lat:35.696233, long:139.570431} // or:
 	// var params = [['lat', '35.696233'], ['long', '139.570431']]
@@ -182,7 +182,7 @@ export async function getServerSideProps({query}) {
     const res = await fetch(url)
     const data = await res.json()
 
-    const resPopular = await fetch(`${process.env.API_HOST}/objects?featured=true`)
+    const resPopular = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/objects?featured=true`)
     const dataPopular = await resPopular.json()
 
 	// let lastItems;
@@ -191,7 +191,7 @@ export async function getServerSideProps({query}) {
 	// 	lastItems = localStorage.getItem('last')
 	// }
 	
-    // const resLast = await fetch(`${process.env.API_HOST}/objects?last=${lastItems}`)
+    // const resLast = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/objects?last=${lastItems}`)
     // const dataLast = await resLast.json()
 
     return {

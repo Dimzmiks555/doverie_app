@@ -50,14 +50,14 @@ export default function VariantCard({disableArrows, object}) {
                     {
                         disableArrows == true ? (
                             <Link href={`/catalog/${object?.id}`}>
-                                <img className="img-whp" src={`${process.env.API_HOST}/${object?.images?.[0]?.src}`} alt="fp4.jpg"></img>
+                                <img className="img-whp" src={`${process.env.NEXT_PUBLIC_API_HOST}/${object?.images?.[0]?.src}`} alt="fp4.jpg"></img>
                             </Link>
                         ) : (
                             <div className="fp_single_item_slider">
                                 {
                                     object?.images?.map(image => (
                                         <div className="item">
-                                            <img className="img-whp" src={`${process.env.API_HOST}/${image?.src}`} alt="fp4.jpg"></img>
+                                            <img className="img-whp" src={`${process.env.NEXT_PUBLIC_API_HOST}/${image?.src}`} alt="fp4.jpg"></img>
                                         </div>
                                     ))
                                 }
