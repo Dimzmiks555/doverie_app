@@ -23,7 +23,9 @@ export class ObjectsService {
 
     const {featured, type, kind, priceFrom, priceTo, status, rooms, area, limit, page, squareFrom, squareTo, order, last} = query
 
-    let options: any = {};
+    let options: any = {
+      featured: false
+    };
 
     let orderFilter : OrderItem = ['createdAt', 'DESC']
 
@@ -33,7 +35,7 @@ export class ObjectsService {
     if (kind) {options.kind = kind}
     if (status) {options.status = status}
     if (area) {options.area = area}
-    if (featured) { options.featured = featured}
+    if (featured) { options.featured = true}
 
     if (priceFrom &&  priceFrom != 'null') {options.price = {[Op.gte]: +priceFrom}}
     if (priceTo &&  priceTo != 'null') {options.price = {[Op.lte]: +priceTo}}
