@@ -32,7 +32,7 @@ export const CreateObjectMain = ({ customers, ...rest }) => {
 
   function onSubmit(data) {
     console.log(data); 
-    fetch(`${process.env.API_HOST}/objects`, {
+    fetch(new URL(`${process.env.API_HOST}/objects`), {
       method: 'POST',
       headers: {
         "Content-Type": 'application/json',
