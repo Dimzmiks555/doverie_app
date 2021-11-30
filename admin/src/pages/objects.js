@@ -38,7 +38,7 @@ Customers.getLayout = (page) => (
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`${process.env.API_HOST}/objects`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/objects`)
   const objects = await res.json()
 
   // Pass data to the page via props

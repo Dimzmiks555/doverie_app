@@ -120,7 +120,7 @@ Gallery.getLayout = (page) => (
 
 export async function getServerSideProps() {
 
-  const res = await fetch(`${process.env.API_HOST}/gallery`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/gallery`)
 
   const objects = await res.json()
 

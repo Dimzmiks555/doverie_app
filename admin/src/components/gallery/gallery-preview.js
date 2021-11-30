@@ -43,7 +43,7 @@ export const GalleryPreview = ({ objects, ...rest }) => {
 
 
   function handleDeleteImage(e, id) {
-    fetch(`${process.env.API_HOST}/gallery/${id}`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_HOST}/gallery/${id}`, {
       method: 'DELETE',
       // body: JSON.stringify({main: true}),
       // headers: {
@@ -87,7 +87,7 @@ export const GalleryPreview = ({ objects, ...rest }) => {
                 {
                   objects?.map(image => (
                     <Box sx={{m: 2, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                      <img width={200} height={200} style={{objectFit: 'scale-down', margin: 20, cursor: 'pointer', border: `2px solid ${image.main && 'green'}`}} src={`${process.env.API_HOST}/${image.src}` } onClick={e => {handleMain(image.id)}}></img>
+                      <img width={200} height={200} style={{objectFit: 'scale-down', margin: 20, cursor: 'pointer', border: `2px solid ${image.main && 'green'}`}} src={`${process.env.NEXT_PUBLIC_API_HOST}/${image.src}` } onClick={e => {handleMain(image.id)}}></img>
                       <Button fullWidth color='error' variant="contained" onClick={e => {handleDeleteImage(e, image?.id)}}>Удалить</Button>
                     </Box >
                   ))

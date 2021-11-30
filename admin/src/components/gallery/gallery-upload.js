@@ -73,7 +73,7 @@ export default function GalleryUpload() {
             
             // formData.append('id', router.query.id);
             console.log(formData)
-            fetch(`${process.env.API_HOST}/gallery`, {
+            fetch(`${process.env.NEXT_PUBLIC_API_HOST}/gallery`, {
               method: 'POST',
               body: formData,
             })
