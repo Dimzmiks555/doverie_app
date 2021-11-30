@@ -62,8 +62,8 @@ function Gallery({objects}) {
                     objects?.map(item => (
                         <div class="col-sm-6 col-md-6 col-lg-4">
                             <div class="gallery_item">
-                                <img style={{maxHeight: 240, objectFit: 'cover'}} class="img-fluid img-circle-rounded w100" src={`http://localhost:5000/${item.src}`} alt="fp1.jpg"></img>
-                                <div class="gallery_overlay"><a class="icon popup-img" href={`http://localhost:5000/${item.src}`}><span class="flaticon-zoom-in"></span></a></div>
+                                <img style={{maxHeight: 240, objectFit: 'cover'}} class="img-fluid img-circle-rounded w100" src={`${process.env.API_HOST}/${item.src}`} alt="fp1.jpg"></img>
+                                <div class="gallery_overlay"><a class="icon popup-img" href={`${process.env.API_HOST}/${item.src}`}><span class="flaticon-zoom-in"></span></a></div>
                             </div>
                         </div>
                     ))
@@ -79,7 +79,7 @@ function Gallery({objects}) {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch(`http://localhost:5000/gallery`)
+    const res = await fetch(`${process.env.API_HOST}/gallery`)
     const objects = await res.json()
 
 

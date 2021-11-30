@@ -162,10 +162,10 @@ function About({objects, objectsFeatured}) {
 }
 
 // export async function getServerSideProps() {
-//     const res = await fetch(`http://localhost:5000/objects`)
+//     const res = await fetch(`${process.env.API_HOST}/objects`)
 //     const objects = await res.json()
 
-// 	const resFeatured = await fetch(`http://localhost:5000/objects?featured=true`)
+// 	const resFeatured = await fetch(`${process.env.API_HOST}/objects?featured=true`)
 //     const objectsFeatured = await resFeatured.json()
 
 //     return {props : {objects, objectsFeatured}}

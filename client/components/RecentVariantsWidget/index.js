@@ -12,7 +12,7 @@ export default function RecentVariantsWidget({objects}) {
 	if (typeof window != 'undefined') {
 		let lastItems = localStorage.getItem('last')
 
-        fetch(`http://localhost:5000/objects?last=${JSON.parse(lastItems)}`)
+        fetch(`${process.env.API_HOST}/objects?last=${JSON.parse(lastItems)}`)
         .then(res => res.json())
         .then(data => {
             console.log(data)
