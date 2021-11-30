@@ -33,6 +33,7 @@ export class ObjectsService {
     if (kind) {options.kind = kind}
     if (status) {options.status = status}
     if (area) {options.area = area}
+    if (featured) { options.featured = featured}
 
     if (priceFrom &&  priceFrom != 'null') {options.price = {[Op.gte]: +priceFrom}}
     if (priceTo &&  priceTo != 'null') {options.price = {[Op.lte]: +priceTo}}
@@ -60,6 +61,8 @@ export class ObjectsService {
     if (order) { orderFilter = ['price', order]}
     
     if (limit) { limitPage = limit}
+
+    
 
     console.log(featured)
 
