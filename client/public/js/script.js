@@ -66,33 +66,33 @@
     });
 
     /* ----- This code for menu ----- */
-    $(window).on('scroll', function() {
-        if ($('.scroll-to-top').length) {
-            var strickyScrollPos = 100;
-            if ($(window).scrollTop() > strickyScrollPos) {
-                $('.scroll-to-top').fadeIn(500);
-            } else if ($(this).scrollTop() <= strickyScrollPos) {
-                $('.scroll-to-top').fadeOut(500);
-            }
-        };
-        if ($('.stricky').length) {
-            var headerScrollPos = $('.header-navigation').next().offset().top;
-            var stricky = $('.stricky');
-            if ($(window).scrollTop() > headerScrollPos) {
-                stricky.removeClass('slideIn animated');
-                stricky.addClass('stricky-fixed slideInDown animated');
-            } else if ($(this).scrollTop() <= headerScrollPos) {
-                stricky.removeClass('stricky-fixed slideInDown animated');
-                stricky.addClass('slideIn animated');
-            }
-        };
-    });
+    // $(window).on('scroll', function() {
+    //     if ($('.scroll-to-top').length) {
+    //         var strickyScrollPos = 100;
+    //         if ($(window).scrollTop() > strickyScrollPos) {
+    //             $('.scroll-to-top').fadeIn(500);
+    //         } else if ($(this).scrollTop() <= strickyScrollPos) {
+    //             $('.scroll-to-top').fadeOut(500);
+    //         }
+    //     };
+    //     if ($('.stricky').length) {
+    //         var headerScrollPos = $('.header-navigation').next().offset().top;
+    //         var stricky = $('.stricky');
+    //         if ($(window).scrollTop() > headerScrollPos) {
+    //             stricky.removeClass('slideIn animated');
+    //             stricky.addClass('stricky-fixed slideInDown animated');
+    //         } else if ($(this).scrollTop() <= headerScrollPos) {
+    //             stricky.removeClass('stricky-fixed slideInDown animated');
+    //             stricky.addClass('slideIn animated');
+    //         }
+    //     };
+    // });
     
-    $(".mouse_scroll, .mouse_scroll.home8").on('click', function() {
-        $('html, body').animate({
-            scrollTop: $("#feature-property, #property-city").offset().top
-        }, 1000);
-    });
+    // $(".mouse_scroll, .mouse_scroll.home8").on('click', function() {
+    //     $('html, body').animate({
+    //         scrollTop: $("#feature-property, #property-city").offset().top
+    //     }, 1000);
+    // });
     /** Main Menu Custom Script End **/
     
     /* ----- Blog innerpage sidebar according ----- */

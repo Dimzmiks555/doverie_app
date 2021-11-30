@@ -64,7 +64,9 @@ function Contacts({objects, objectsFeatured}) {
 			            <form class="contact_form" id="contact_form" name="contact_form" action="#" method="post" novalidate="novalidate">
 							<div class="row">
 				                <div class="col-md-6">
+				                    <div class="form-group">
 										<TextField label="Имя" fullWidth></TextField>
+									</div>
 				                </div>
 				                <div class="col-md-6">
 				                    <div class="form-group">

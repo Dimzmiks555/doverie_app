@@ -54,9 +54,9 @@ export default function MainFilter() {
                 <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                     <div className="home1-advnc-search home3">
                         
-                        <ul className="h1ads_1st_list mb0" style={{display: 'flex'}} >
+                        <ul className="h1ads_1st_list mb0" style={{display: 'flex', flexWrap: 'wrap'}} >
                             
-                            <li style={{minWidth: 200}}>
+                            <li style={{minWidth: 200, marginBottom: 10}}>
                                 <FormControl fullWidth>
                                     <InputLabel id="demo-simple-select-label">Тип</InputLabel>
                                     <Select
@@ -71,7 +71,7 @@ export default function MainFilter() {
                                     </Select>
                                 </FormControl>
                             </li> 
-                            <li style={{minWidth: 200}}>
+                            <li style={{minWidth: 200, marginBottom: 10}}>
                                 <FormControl fullWidth>
                                     <InputLabel id="demo-simple-select-label">Количество комнат</InputLabel>
                                     <Select
@@ -91,10 +91,10 @@ export default function MainFilter() {
                                     </Select>
                                 </FormControl>
                             </li>
-                            <li style={{minWidth: 200}}>
+                            <li style={{minWidth: 200, marginBottom: 10}}>
                                 <TextField label="Цена от" value={priceFrom} type="number" onChange={handleChangePriceFrom}></TextField>
                             </li>
-                            <li style={{minWidth: 200}}>
+                            <li style={{minWidth: 200, marginBottom: 10}}>
                                 <TextField label="Цена до" value={priceTo} type="number" onChange={handleChangePriceTo}></TextField>
                             </li>
                             <li className="list-inline-item" style={{display: 'block', marginLeft: 'auto'}}>
@@ -113,9 +113,9 @@ export default function MainFilter() {
                 </div>
                 <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <div className="home1-advnc-search home3">
-                    <ul className="h1ads_1st_list mb0" style={{display: 'flex'}} >
+                    <ul className="h1ads_1st_list mb0" style={{display: 'flex', flexWrap: 'wrap'}} >
                             
-                            <li style={{minWidth: 200}}>
+                            <li style={{minWidth: 200, marginBottom: 10}}>
                                 <FormControl fullWidth>
                                     <InputLabel id="demo-simple-select-label">Тип</InputLabel>
                                     <Select
@@ -130,7 +130,7 @@ export default function MainFilter() {
                                     </Select>
                                 </FormControl>
                             </li> 
-                            <li style={{minWidth: 200}}>
+                            <li style={{minWidth: 200, marginBottom: 10}}>
                                 <FormControl fullWidth>
                                     <InputLabel id="demo-simple-select-label">Количество комнат</InputLabel>
                                     <Select
@@ -150,10 +150,10 @@ export default function MainFilter() {
                                     </Select>
                                 </FormControl>
                             </li>
-                            <li style={{minWidth: 200}}>
+                            <li style={{minWidth: 200, marginBottom: 10}}>
                                 <TextField label="Цена от" value={priceFrom} type="number" onChange={handleChangePriceFrom}></TextField>
                             </li>
-                            <li style={{minWidth: 200}}>
+                            <li style={{minWidth: 200, marginBottom: 10}}>
                                 <TextField label="Цена до" value={priceTo} type="number" onChange={handleChangePriceTo}></TextField>
                             </li>
                             <li className="list-inline-item" style={{display: 'block', marginLeft: 'auto'}}>
