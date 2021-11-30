@@ -118,7 +118,7 @@ Dashboard.getLayout = (page) => (
 
 export async function getServerSideProps() {
 
-  const res = await fetch(`http://localhost:5000/objects?featured=true`)
+  const res = await fetch(`${process.env.API_HOST}/objects?featured=true`)
 
   const objects = await res.json()
 

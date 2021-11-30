@@ -47,7 +47,7 @@ export const ObjectPreview = ({ data, ...rest }) => {
     console.log(files)
 
 
-    fetch(`http://localhost:5000/objects/${router.query.id}`, {
+    fetch(`${process.env.API_HOST}/objects/${router.query.id}`, {
       method: 'PATCH',
       headers: {
         "Content-Type": 'application/json',
@@ -73,7 +73,7 @@ export const ObjectPreview = ({ data, ...rest }) => {
           
           formData.append('id', router.query.id);
           console.log(formData)
-          fetch('http://localhost:5000/images/', {
+          fetch(`${process.env.API_HOST}/images/`, {
             method: 'POST',
             body: formData,
           })
@@ -91,7 +91,7 @@ export const ObjectPreview = ({ data, ...rest }) => {
       let ImageMain = data?.images?.find((item) => {return item.main == true})
 
       if (ImageNotMain && ImageMain) {
-        fetch(`http://localhost:5000/images/${ImageNotMain.id}`, {
+        fetch(`${process.env.API_HOST}/images/${ImageNotMain.id}`, {
           method: 'PATCH',
           body: JSON.stringify({main: true}),
           headers: {
@@ -104,7 +104,7 @@ export const ObjectPreview = ({ data, ...rest }) => {
           
           router.reload()
         });
-        fetch(`http://localhost:5000/images/${ImageMain.id}`, {
+        fetch(`${process.env.API_HOST}/images/${ImageMain.id}`, {
           method: 'PATCH',
           body: JSON.stringify({main: false}),
           headers: {
@@ -119,7 +119,7 @@ export const ObjectPreview = ({ data, ...rest }) => {
         });
         console.log('change image')
       } else if (ImageNotMain && !ImageMain) {
-        fetch(`http://localhost:5000/images/${ImageNotMain.id}`, {
+        fetch(`${process.env.API_HOST}/images/${ImageNotMain.id}`, {
           method: 'PATCH',
           body: JSON.stringify({main: true}),
           headers: {
@@ -139,7 +139,7 @@ export const ObjectPreview = ({ data, ...rest }) => {
   }
 
   function handleDeleteImage(e, id) {
-    fetch(`http://localhost:5000/images/${id}`, {
+    fetch(`${process.env.API_HOST}/images/${id}`, {
       method: 'DELETE',
       // body: JSON.stringify({main: true}),
       // headers: {
@@ -250,7 +250,7 @@ export const ObjectPreview = ({ data, ...rest }) => {
                 {
                   data?.images?.map(image => (
                     <Box sx={{m: 2, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                      <img width={200} height={200} style={{objectFit: 'scale-down', margin: 20, cursor: 'pointer', border: `2px solid ${image.main && 'green'}`}} src={`http://localhost:5000/${image.src}` } onClick={e => {handleMain(image.id)}}></img>
+                      <img width={200} height={200} style={{objectFit: 'scale-down', margin: 20, cursor: 'pointer', border: `2px solid ${image.main && 'green'}`}} src={`${process.env.API_HOST}/${image.src}` } onClick={e => {handleMain(image.id)}}></img>
                       <Button fullWidth color='error' variant="contained" onClick={e => {handleDeleteImage(e, image?.id)}}>Удалить</Button>
                     </Box >
                   ))

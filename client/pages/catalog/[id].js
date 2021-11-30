@@ -289,10 +289,10 @@ export default function CatalogVariant({ data, dataPopular }) {
 }
 
 export async function getServerSideProps({params}) {
-    const res = await fetch(`${process.env.API_HOST}/objects/${params.id}`)
+    const res = await fetch(new URL(`${process.env.API_HOST}/objects/${params.id}`))
     const data = await res.json()
 
-    const resPopular = await fetch(`${process.env.API_HOST}/objects?featured=true`)
+    const resPopular = await fetch(new URL(`${process.env.API_HOST}/objects?featured=true`))
     const dataPopular = await resPopular.json()
 
     return {
