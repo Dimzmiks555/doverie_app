@@ -26,7 +26,13 @@ function Home({objects, objectsFeatured}) {
 
   return (
     <div className="wrapper maxw1600 m0a">
-
+	<Head>
+		<title>ДОВЕРИЕ - агенство недвижимости в городе Лиски</title>
+		    <meta name="description" content="Мы поможем найти Вам свой уютный дом в городе Лиски! Актуальная база объектов, качественное обслуживание и полное сопровождение."></meta>
+		<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+		<meta name="yandex-verification" content="6f2a022b8c8909fe" />
+		<meta name="keywords" content="купить дом, купить квартиру, доверие, лиски, агенство недвижимости, купить дом в лисках, купить квартиру в лисках, снять квартиру, снять дом, снять квартиру в лисках, снять квартиру лиски, купить дом лиски, продажа домов лиски, купить квартиру лиски, доверие лиски" />
+	</Head>
 	{/* <!-- Main Header Nav --> */}
 	<Header/>
 	{/* <!-- Modal --> */}

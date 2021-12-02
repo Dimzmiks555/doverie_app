@@ -23,9 +23,11 @@ export default function VariantCard({disableArrows, object}) {
                     localStorage.setItem('last', JSON.stringify(array))
 
                 } else {
-                    let array = JSON.parse(lastObj).shift()
+                    let array = JSON.parse(lastObj)
 
-                    if (array.find(item => {return +item == +object.id})) {
+                    array.shift()
+                    console.log(array)
+                    if (array?.find(item => {return +item == +object.id})) {
                     } else {
                         array.push(object.id)
                     }

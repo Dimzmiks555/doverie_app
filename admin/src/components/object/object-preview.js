@@ -65,6 +65,8 @@ export const ObjectPreview = ({ data, ...rest }) => {
 
     })
     
+    let success = []
+
     if (files?.length > 0) {
       files.forEach(item => {
         console.log(item.path)
@@ -79,6 +81,11 @@ export const ObjectPreview = ({ data, ...rest }) => {
           })
           .then(d => {
             console.log(d)
+            success.push(d)
+
+            if (success.length == files?.length) {
+                window.location.reload()
+            }
   
           });
         })
