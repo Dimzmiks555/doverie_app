@@ -122,7 +122,7 @@ export default function CatalogVariant({ data, dataPopular }) {
                                 <div className="spls_style_two mb30-520" style={{display: 'flex', justifyContent: 'center'}}>
                                     {
                                         data?.images?.length > 0 ? (
-                                            <a className="popup-img" href={`${process.env.NEXT_PUBLIC_API_HOST}/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`}><img className="img-fluid" style={{maxHeight: 600, objectFit: 'scale-down', borderRadius: '10px'}} src={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`} alt="1.jpg"></img></a>
+                                            <a className="popup-img" href={`${process.env.NEXT_PUBLIC_API_HOST}/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`}><img className="img-fluid" style={{maxHeight: 600, objectFit: 'scale-down', borderRadius: '10px'}} src={`${process.env.NEXT_PUBLIC_API_HOST}/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`} alt="1.jpg"></img></a>
                                         ) : (
                                             <img src='/noPhoto.png'></img>
                                         )
