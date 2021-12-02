@@ -36,9 +36,17 @@ Customers.getLayout = (page) => (
 );
 
 
-export async function getServerSideProps() {
+export async function getServerSideProps({query}) {
   // Fetch data from external API
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/objects`)
+  let url = new URL(`${process.env.NEXT_PUBLIC_API_HOST}/objects`)
+
+	// var params = {lat:35.696233, long:139.570431} // or:
+	// var params = [['lat', '35.696233'], ['long', '139.570431']]
+	// query.kind == 'Купить' ? query.kind = 'Продажа' : query.kind = 'Аренда'
+	
+	url.search = new URLSearchParams(query).toString();
+
+  const res = await fetch(url)
   const objects = await res.json()
 
   // Pass data to the page via props

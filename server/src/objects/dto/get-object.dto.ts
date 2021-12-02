@@ -13,4 +13,9 @@ export class GetObjectsDto{
     page: number
     order: string
     last: string
+    id: any
+    street: any
+    house: any
+    flat: any
+
   }

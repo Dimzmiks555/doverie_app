@@ -17,6 +17,7 @@ import {
   Typography
 } from '@mui/material';
 import { getInitials } from '../../utils/get-initials';
+import { SeverityPill } from '../severity-pill';
 
 export const CustomerListResults = ({ objects, ...rest }) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
@@ -145,7 +146,9 @@ export const CustomerListResults = ({ objects, ...rest }) => {
                     {new Date(object.createdAt).toLocaleDateString()}
                   </TableCell>
                   <TableCell>
-                    {object.status == '1' ? 'Активно' : 'Не активно'}
+                    <SeverityPill color={object.status == '1' ? 'success' : 'error'}>
+                      {object.status == '1' ? 'Активно' : 'Не активно'}
+                    </SeverityPill>
                   </TableCell>
                 </TableRow>
               ))}

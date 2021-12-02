@@ -21,14 +21,25 @@ export class ObjectsService {
 
   async findAll(query: GetObjectsDto): Promise<Object> {
 
-    const {featured, type, kind, priceFrom, priceTo, status, rooms, area, limit, page, squareFrom, squareTo, order, last} = query
+    const {featured, type, kind, priceFrom, priceTo, status, rooms, area, limit, page, squareFrom, squareTo, order, last, id, street, house, flat} = query
 
     let options: any = {
     };
 
     let orderFilter : OrderItem = ['createdAt', 'DESC']
-
+    
     if (type) {options.type = type}
+
+    if (street) {options.street = {[Op.substring]: street}}
+
+    
+    if (house) {options.house = house}
+
+    
+    if (flat) {options.flat = flat}
+
+    
+    if (id) {options.id = id}
     console.log(last)
     if (last) {options.id = {[Op.in]: last.split(',')}  }
     if (kind) {options.kind = kind}
@@ -68,6 +79,7 @@ export class ObjectsService {
     console.log(featured)
 
     return this.objectsModel.findAndCountAll({
+      distinct: true,
       include: [
         ImageModel
       ],
