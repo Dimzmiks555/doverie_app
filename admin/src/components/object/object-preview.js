@@ -40,6 +40,8 @@ export const ObjectPreview = ({ data, ...rest }) => {
   
   const [ files , setFiles ] = useState([]);
   const [ accessAlert , setAccessAlert ] = useState(false);
+  
+  const [ disabled , setDisabled ] = useState(false);
 
 
   function onSubmit(data) {
@@ -68,6 +70,7 @@ export const ObjectPreview = ({ data, ...rest }) => {
     let success = []
 
     if (files?.length > 0) {
+      setDisabled(true)
       files.forEach(item => {
         console.log(item.path)
         let formData = new FormData();
@@ -84,6 +87,7 @@ export const ObjectPreview = ({ data, ...rest }) => {
             success.push(d)
 
             if (success.length == files?.length) {
+                setDisabled(false)
                 window.location.reload()
             }
   
@@ -204,6 +208,7 @@ export const ObjectPreview = ({ data, ...rest }) => {
                 color="primary"
                 variant="contained"
                 type="submit"
+                disabled={disabled}
                 >
                 Сохранить
                 </Button>

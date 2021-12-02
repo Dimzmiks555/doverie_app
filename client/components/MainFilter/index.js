@@ -11,7 +11,7 @@ export default function MainFilter() {
     const [type, setType] = useState('Квартира');
     const [kind, setKind] = useState('Продажа');
     const [priceTo, setPriceTo] = useState(null);
-    const [rooms, setRooms] = useState(['1','2','3']);
+    const [rooms, setRooms] = useState(['1','2','3', '4']);
     const [priceFrom, setPriceFrom] = useState(null);
 
     const handleChangeType = (event) => {
