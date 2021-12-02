@@ -122,7 +122,7 @@ export default function CatalogVariant({ data, dataPopular }) {
                                 <div className="spls_style_two mb30-520" style={{display: 'flex', justifyContent: 'center'}}>
                                     {
                                         data?.images?.length > 0 ? (
-                                            <a className="popup-img" href={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`}><img className="img-fluid" style={{maxHeight: 600, objectFit: 'scale-down', borderRadius: '10px'}} src={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`} alt="1.jpg"></img></a>
+                                            <a className="popup-img" href={`${process.env.NEXT_PUBLIC_API_HOST}/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`}><img className="img-fluid" style={{maxHeight: 600, objectFit: 'scale-down', borderRadius: '10px'}} src={`http://localhost:5000/${data.images?.find(item => {return item.main == true}) ? data.images?.find(item => {return item.main == true})?.src : data?.images?.[0]?.src}`} alt="1.jpg"></img></a>
                                         ) : (
                                             <img src='/noPhoto.png'></img>
                                         )
@@ -137,7 +137,7 @@ export default function CatalogVariant({ data, dataPopular }) {
                                 data.images?.filter(item => {return !item.main})?.map(image => (
                                     <div className="col-sm-6 col-lg-6">
                                         <div className="spls_style_two mb30">
-                                            <a className="popup-img" href={`http://localhost:5000/${image.src}`}><img className="img-fluid" style={{maxHeight: 200, objectFit: 'scale-down'}} src={`http://localhost:5000/${image.src}`} alt="2.jpg"></img></a>
+                                            <a className="popup-img" href={`${process.env.NEXT_PUBLIC_API_HOST}/${image.src}`}><img className="img-fluid" style={{maxHeight: 200, objectFit: 'scale-down'}} src={`http://localhost:5000/${image.src}`} alt="2.jpg"></img></a>
                                         </div>
                                     </div>
                                 ))
@@ -298,10 +298,10 @@ export default function CatalogVariant({ data, dataPopular }) {
 
 export async function getServerSideProps({params}) {
 
-    const res = await fetch(`http://localhost:5000/objects/${params.id}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/objects/${params.id}`)
     const data = await res.json()
 
-    const resPopular = await fetch(`http://localhost:5000/objects?featured=true`)
+    const resPopular = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/objects?featured=true`)
     const dataPopular = await resPopular.json()
 
     return {

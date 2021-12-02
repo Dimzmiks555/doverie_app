@@ -31,7 +31,7 @@ export class ObjectsModel extends Model {
     @Column({type: DataType.INTEGER})
     rooms: number;
 
-    @Column({type: DataType.STRING})
+    @Column({type: DataType.TEXT})
     description: string;
 
     @Column({type: DataType.INTEGER})
