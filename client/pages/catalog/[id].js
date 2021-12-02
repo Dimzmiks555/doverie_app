@@ -136,15 +136,19 @@ export default function CatalogVariant({ data, dataPopular }) {
                             {
                                 data.images?.filter(item => {return !item.main})?.map((image, index) => (
                                     <div className="col-sm-6 col-lg-6">
-                                        <div className="spls_style_two mb30">
                                             {
                                                 index == 0 || index == 1 || index == 2 || index == 3 || index == 4 || index == 5 ? (
+                                                    
+                                                    <div className="spls_style_two mb30">
                                                     <a className="popup-img" href={`${process.env.NEXT_PUBLIC_API_HOST}/${image.src}`}><img className="img-fluid" style={{maxHeight: 200, objectFit: 'scale-down'}} src={`${process.env.NEXT_PUBLIC_API_HOST}/${image.src}`} alt="2.jpg"></img></a>
+                                                
+                                                    </div>
                                                 ) : (
+                                                    <div className="spls_style_two mb30">
                                                     <a className="popup-img" href={`${process.env.NEXT_PUBLIC_API_HOST}/${image.src}`}></a>
+                                                    </div>
                                                 )
                                             }
-                                        </div>
                                     </div>
                                 ))
                             }
