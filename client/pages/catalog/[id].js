@@ -82,7 +82,8 @@ export default function CatalogVariant({ data, dataPopular }) {
             <DialogContentText id="alert-dialog-description">
                 
                 <h4><b>{"+7 (900) 930-69-78 - Светлана Ивановна"}</b></h4>
-                Позвоните по этому номеру, назовите номер объекта и менеджер сообщит Вам всю интересующую Вас информацию!
+                <h4><b>{"+7 (952) 548-57-22 - Людмила Тищенко"}</b></h4>
+                Позвоните по одному из номеров, назовите номер объекта и менеджер сообщит Вам всю интересующую Вас информацию!
             </DialogContentText>
             </DialogContent>
             <DialogActions>
@@ -95,8 +96,8 @@ export default function CatalogVariant({ data, dataPopular }) {
                 <div className="row mb30">
                     <div className="col-lg-7 col-xl-8">
                         <div className="single_property_title mt30-767">
-                            <h2>{data.rooms}-комнат. {data?.type?.toLowerCase()}</h2>
-                            <p>{data?.street} улица, {data?.city} </p>
+                            {data?.type == 'Квартира' ? <h2>{data?.rooms} комнат. {data?.type?.toLowerCase()}</h2> : <h2>{data?.type}</h2>}
+                            <p>{data?.city}, {(data?.area != 'нет' && data?.area != '0') && 'район' + data?.area}</p>
                         </div>
                         {/* <div className="dn db-991">
                             <div id="main2">
@@ -232,7 +233,7 @@ export default function CatalogVariant({ data, dataPopular }) {
                                                 <li><p>Тип объекта :</p> </li>
                                             </ul>
                                             <ul className="list-inline-item">
-                                                <li><p><span>В продаже</span></p> </li>
+                                                <li><p><span>{data?.status == 1 ? 'В продаже' : 'Снято с публикации'}</span></p> </li>
                                                 <li><p><span>{data.type}</span></p> </li>
                                             </ul>
                                         </div>

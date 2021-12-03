@@ -29,6 +29,7 @@ export default function Footer() {
                                 <li><a href="#">город Лиски, улица Коммунистическая</a></li>
                                 <li><a href="#">д. 12а, Рынок.</a></li>
                                 <li><a href="#">+7 900-930-6978</a></li>
+                                <li><a href="#">+7 952-548-5722</a></li>
                             </ul>
                         </div>
                     </div>

@@ -113,6 +113,9 @@ export const CreateObjectMain = ({ customers, ...rest }) => {
                     >
                       <MenuItem value={'Квартира'}>Квартира</MenuItem>
                       <MenuItem value={'Дом'}>Дом</MenuItem>
+                      <MenuItem value={"Коттедж"}>Коттедж</MenuItem>
+                      <MenuItem value={"Половина дома"}>Половина дома</MenuItem>
+                      <MenuItem value={"Участок"}>Участок</MenuItem>
                     </Select>
                 </FormControl>
                 {/* <TextField  defaultValue={data?.type} label="Тип" /> */}

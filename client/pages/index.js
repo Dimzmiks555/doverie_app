@@ -237,10 +237,10 @@ function Home({objects, objectsFeatured}) {
 }
 
 export async function getServerSideProps() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/objects`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/objects?status=1`)
     const objects = await res.json()
 
-	const resFeatured = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/objects?featured=true`)
+	const resFeatured = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/objects?featured=true&status=1`)
     const objectsFeatured = await resFeatured.json()
 
     return {props : {objects, objectsFeatured}}

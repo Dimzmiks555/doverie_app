@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import useScript from '../../hooks/useScript';
-
+import { YMInitializer } from 'react-yandex-metrika';
 export default function Header() {
 
 
@@ -15,6 +15,7 @@ export default function Header() {
             rel="stylesheet"
             />
         </Head>
+        <YMInitializer accounts={[86750009]} />
         <header className="header-nav menu_style_home_one style2 home3 navbar-scrolltofixed stricky main-menu">
                 <div className="container-fluid p0">
                     {/* <!-- Ace Responsive Menu --> */}

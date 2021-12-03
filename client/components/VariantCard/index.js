@@ -91,8 +91,8 @@ export default function VariantCard({disableArrows, object}) {
                     <div className="details">
                         <div className="tc_content">
                             <p className="text-thm">{object?.type}</p>
-                            <h4>{object?.rooms} комнат. {object?.type?.toLowerCase()}</h4>
-                            <p><span className="flaticon-placeholder"></span> {object?.street} улица, {object?.city}</p>
+                            {object?.type == 'Квартира' ? <h4>{object?.rooms} комнат. {object?.type?.toLowerCase()}</h4> : <h4>{object?.type}</h4>}
+                            <p><span className="flaticon-placeholder"></span> {object?.city}, {(object?.area != 'нет' && object?.area != '0') && 'район' + object?.area}</p>
                             <ul className="prop_details mb0">
                                 <li className="list-inline-item"><a href="#">Комнат: {object?.rooms}</a></li>
                                 <li className="list-inline-item"><a href="#">Площадь: {object?.square} м2</a></li>

@@ -62,6 +62,12 @@ export const CustomerListResults = ({ objects, ...rest }) => {
 
   const handlePageChange = (event, newPage) => {
     setPage(newPage);
+    router.query?.page = newPage
+
+    router.push({
+        pathname: '/objects',
+        query: router.query
+    })
   };
 
   return (
@@ -163,7 +169,7 @@ export const CustomerListResults = ({ objects, ...rest }) => {
         onRowsPerPageChange={handleLimitChange}
         page={page}
         rowsPerPage={limit}
-        rowsPerPageOptions={[5, 10, 25]}
+        rowsPerPageOptions={[10]}
       />
     </Card>
   );

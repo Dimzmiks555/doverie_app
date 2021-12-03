@@ -160,6 +160,9 @@ export const CustomerListToolbar = (props) => {
                 <MenuItem >нет</MenuItem>
                 <MenuItem value={'Квартира'}>Квартира</MenuItem>
                 <MenuItem value={'Дом'}>Дом</MenuItem>
+                <MenuItem value={"Коттедж"}>Коттедж</MenuItem>
+                <MenuItem value={"Половина дома"}>Половина дома</MenuItem>
+                <MenuItem value={"Участок"}>Участок</MenuItem>
               </Select>
             </FormControl>
             <FormControl sx={{width: 200}}>
