@@ -26,6 +26,7 @@ import { GalleryModel } from './gallery/entities/gallery.entity';
       models: [ObjectsModel, ImageModel, GalleryModel ],
       autoLoadModels: true,
       synchronize: true,
+      sync: { alter: true },
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname,'..', 'uploads'),
