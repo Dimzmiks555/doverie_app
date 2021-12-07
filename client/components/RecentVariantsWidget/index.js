@@ -33,7 +33,7 @@ export default function RecentVariantsWidget({objects}) {
                         <div style={{cursor: 'pointer'}}  className="media">
                             <img className="align-self-start mr-3" style={{height: 80, width: 90, borderRadius: 6, objectFit: 'cover'}} src={`${process.env.NEXT_PUBLIC_API_HOST}/${item?.images?.[0]?.src}`} alt="fls1.jpg"></img>
                             <div className="media-body">
-                                <a>{item?.type == 'Квартира' ? <h5 className="mt-0 post_title">{item?.rooms} комн. {item?.type?.toLowerCase()}, {item.square} м<sup>2</sup></h5> : <h5 className="mt-0 post_title">{item?.type} {item.square} м<sup>2</sup>{item?.level && +item?.level != 0 ? item?.level + ' этаж' : null}{item?.place_square && +item?.place_square != 0 ? ', участок ' + item?.place_square + ' сот.' : null}</h5>}</a>
+                                <a>{item?.type == 'Квартира' ? <h5 className="mt-0 post_title">{item?.rooms} комн. {item?.type?.toLowerCase()} {item.square} м<sup>2</sup>, {item?.level && +item?.level != 0 ? item?.level + ' этаж' : null}</h5> : <h5 className="mt-0 post_title">{item?.type} {item.square} м<sup>2</sup>{item?.place_square && +item?.place_square != 0 ? ', участок ' + item?.place_square + ' сот.' : null}</h5>}</a>
                                 
                                 <ul className="mb0">
                                     {/* <li style={{marginRight: 10}} className="list-inline-item">Комнат: {item?.rooms}</li>
