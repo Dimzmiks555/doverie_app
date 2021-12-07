@@ -38,7 +38,7 @@ Customers.getLayout = (page) => (
 
 export async function getServerSideProps({query}) {
   // Fetch data from external API
-  let url = new URL(`${process.env.NEXT_PUBLIC_API_HOST}/objects`)
+  let url = new URL(`${process.env.NEXT_PUBLIC_API_HOST}/objects?limit=10`)
 
 	// var params = {lat:35.696233, long:139.570431} // or:
 	// var params = [['lat', '35.696233'], ['long', '139.570431']]

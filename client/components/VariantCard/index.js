@@ -50,21 +50,23 @@ export default function VariantCard({disableArrows, object}) {
             <div className="feat_property home7 style4" onClick={handleLast}>
                 <div className="thumb" style={{minHeight: 220}}>
                     {
-                        disableArrows == true ? (
+                        // disableArrows == true ? (
+                            }
                             <Link href={`/catalog/${object?.id}`}>
-                                <img className="img-whp" src={`${process.env.NEXT_PUBLIC_API_HOST}/${object?.images?.[0]?.src}`} alt="fp4.jpg"></img>
+                                <img className="img-whp" src={`${process.env.NEXT_PUBLIC_API_HOST}/${object?.images?.find(item => {return item.main == true}) ? object?.images?.find(item => {return item.main == true})?.src : object?.images?.[0]?.src}`} alt="fp4.jpg"></img>
                             </Link>
-                        ) : (
-                            <div className="fp_single_item_slider">
-                                {
-                                    object?.images?.map(image => (
-                                        <div className="item">
-                                            <img className="img-whp" src={`${process.env.NEXT_PUBLIC_API_HOST}/${image?.src}`} alt="fp4.jpg"></img>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        )
+                            {
+                        // ) : (
+                        //     <div className="fp_single_item_slider">
+                        //         {
+                        //             object?.images?.map(image => (
+                        //                 <div className="item">
+                        //                     <img className="img-whp" src={`${process.env.NEXT_PUBLIC_API_HOST}/${image?.src}`} alt="fp4.jpg"></img>
+                        //                 </div>
+                        //             ))
+                        //         }
+                        //     </div>
+                        // )
                     }
                     <div className="thmb_cntnt style2">
                         <ul className="tag mb0">
@@ -92,7 +94,7 @@ export default function VariantCard({disableArrows, object}) {
                         <div className="tc_content">
                             <p className="text-thm">{object?.type}</p>
                             {object?.type == 'Квартира' ? <h4>{object?.rooms} комнат. {object?.type?.toLowerCase()}</h4> : <h4>{object?.type}</h4>}
-                            <p><span className="flaticon-placeholder"></span> {object?.city}, {(object?.area != 'нет' && object?.area != '0') && 'район' + object?.area}</p>
+                            <p><span className="flaticon-placeholder"></span> {object?.city}{(object?.area != 'нет' && object?.area != '0') && ', район ' + object?.area}</p>
                             <ul className="prop_details mb0">
                                 <li className="list-inline-item"><a href="#">Комнат: {object?.rooms}</a></li>
                                 <li className="list-inline-item"><a href="#">Площадь: {object?.square} м2</a></li>

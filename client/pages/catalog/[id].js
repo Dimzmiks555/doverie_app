@@ -97,7 +97,7 @@ export default function CatalogVariant({ data, dataPopular }) {
                     <div className="col-lg-7 col-xl-8">
                         <div className="single_property_title mt30-767">
                             {data?.type == 'Квартира' ? <h2>{data?.rooms} комнат. {data?.type?.toLowerCase()}</h2> : <h2>{data?.type}</h2>}
-                            <p>{data?.city}, {(data?.area != 'нет' && data?.area != '0') && 'район' + data?.area}</p>
+                            <p>{data?.city} {(data?.area != 'нет' && data?.area != '0') && ', район ' + data?.area}</p>
                         </div>
                         {/* <div className="dn db-991">
                             <div id="main2">
