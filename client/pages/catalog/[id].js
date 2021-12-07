@@ -218,13 +218,13 @@ export default function CatalogVariant({ data, dataPopular }) {
                                         <div className="col-md-6 col-lg-6 col-xl-4">
                                             <ul className="list-inline-item">
                                                 <li><p>Комнат :</p></li>
-                                                {/* <li><p>Ванных :</p> </li>
-                                                <li><p>Гаражей :</p> </li> */}
+                                                <li><p>Площадь участка :</p> </li>
+                                                <li><p>Этаж :</p> </li>
                                             </ul>
                                             <ul className="list-inline-item">
                                                 <li><p><span>{data.rooms}</span></p> </li>
-                                                {/* <li><p><span>4</span></p> </li> */}
-                                                {/* <li><p><span>2</span></p> </li> */}
+                                                <li><p><span>{data.place_square ? data.place_square + ' соток' : 'нет'}</span></p> </li>
+                                                <li><p><span>{data.level ? data.level : 'нет'}</span></p> </li>
                                             </ul>
                                         </div>
                                         <div className="col-md-6 col-lg-6 col-xl-4">
