@@ -21,8 +21,7 @@ export class ObjectsService {
 
   async findAll(query: GetObjectsDto): Promise<Object> {
 
-    const {featured, type, kind, priceFrom, priceTo, status, rooms, area, limit, page, squareFrom, squareTo, order, last, id, street, house, flat} = query
-
+    const {featured, type, kind, priceFrom, priceTo, status, rooms, area, limit, page, squareFrom, squareTo, order, last, id, street, house, flat, place_square, level} = query
     let options: any = {
     };
 

@@ -224,8 +224,8 @@ export const ObjectPreview = ({ data, ...rest }) => {
                 <TextField {...register('area', { required: false })} defaultValue={data?.area} label="Район" />
             </Box>
             <Typography variant='h5'>Характеристики</Typography>
-            <Box sx={{py: 5, display: 'flex', justifyContent: 'space-between'}}>
-                <FormControl sx={{ minWidth: 200 }}>
+            <Box sx={{py: 5, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
+                <FormControl sx={{ minWidth: 200, mb: 2 }}>
                     <InputLabel id="demo-controlled-open-select-label">Тип</InputLabel>
                     <Select
                       labelId="demo-controlled-open-select-label"
@@ -259,6 +259,8 @@ export const ObjectPreview = ({ data, ...rest }) => {
                 <TextField {...register('square', { required: false })} defaultValue={data?.square} label="Площадь" />
                 <TextField {...register('rooms', { required: false })} defaultValue={data?.rooms} label="Количество комнат" />
                 <TextField {...register('price', { required: false })} defaultValue={data?.price} label="Цена" />
+                <TextField {...register('place_square', { required: false })} defaultValue={data?.place_square} label="Площадь участка" />
+                <TextField {...register('level', { required: false })}  defaultValue={data?.level} label="Этажность" />
             </Box>
             <Typography variant='h5'>Изображения</Typography>
             <Box sx={{display: 'flex', flexWrap: 'wrap'}}>

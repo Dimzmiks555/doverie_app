@@ -11,4 +11,6 @@ export class CreateObjectDto {
     readonly house: string;
     readonly description: string;
     readonly featured: boolean;
+    level: string
+    place_square: string
 }

@@ -25,7 +25,7 @@ import { GalleryModel } from './gallery/entities/gallery.entity';
       database: 'doverie',
       models: [ObjectsModel, ImageModel, GalleryModel ],
       autoLoadModels: true,
-      // synchronize: true,
+      synchronize: true,
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname,'..', 'uploads'),

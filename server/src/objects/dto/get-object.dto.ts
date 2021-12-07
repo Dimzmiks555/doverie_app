@@ -17,5 +17,7 @@ export class GetObjectsDto{
     street: any
     house: any
     flat: any
+    level: any
+    place_square: any
 
   }

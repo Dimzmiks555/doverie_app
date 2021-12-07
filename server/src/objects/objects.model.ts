@@ -28,6 +28,12 @@ export class ObjectsModel extends Model {
     @Column({type: DataType.STRING})
     area: string;
 
+    @Column({type: DataType.STRING})
+    place_square: string;
+
+    @Column({type: DataType.STRING})
+    level: string;
+
     @Column({type: DataType.INTEGER})
     rooms: number;
 

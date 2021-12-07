@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
@@ -20,9 +21,15 @@ import { getInitials } from '../../utils/get-initials';
 import { SeverityPill } from '../severity-pill';
 
 export const CustomerListResults = ({ objects, ...rest }) => {
+
+  
+  
+
+  const router = useRouter()
+
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   const handleSelectAll = (event) => {
     let newSelectedCustomerIds;
@@ -61,8 +68,8 @@ export const CustomerListResults = ({ objects, ...rest }) => {
   };
 
   const handlePageChange = (event, newPage) => {
-    setPage(newPage);
-    router.query?.page = newPage
+    setPage(newPage + 1);
+    router.query?.page = newPage + 1
 
     router.push({
         pathname: '/objects',
@@ -167,7 +174,7 @@ export const CustomerListResults = ({ objects, ...rest }) => {
         count={objects.count}
         onPageChange={handlePageChange}
         onRowsPerPageChange={handleLimitChange}
-        page={page}
+        page={page-1}
         rowsPerPage={limit}
         rowsPerPageOptions={[10]}
       />

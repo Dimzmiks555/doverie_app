@@ -101,8 +101,8 @@ export const CreateObjectMain = ({ customers, ...rest }) => {
                 <TextField {...register('area', { required: true })} label="Район" />
             </Box>
             <Typography variant='h5'>Характеристики</Typography>
-            <Box sx={{py: 5, display: 'flex', justifyContent: 'space-between'}}>
-                <FormControl sx={{ minWidth: 200 }}>
+            <Box sx={{py: 5, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
+                <FormControl sx={{ minWidth: 200, mb: 2 }}>
                     <InputLabel id="demo-controlled-open-select-label">Тип</InputLabel>
                     <Select
                       labelId="demo-controlled-open-select-label"
@@ -135,6 +135,8 @@ export const CreateObjectMain = ({ customers, ...rest }) => {
                 <TextField {...register('square', { required: true })} label="Площадь" />
                 <TextField {...register('rooms', { required: true })} label="Количество комнат" />
                 <TextField {...register('price', { required: true })} label="Цена" />
+                <TextField {...register('place_square', { required: false })} label="Площадь участка" />
+                <TextField {...register('level', { required: false })} label="Этажность" />
             </Box>
             {/* <Typography variant='h5'>Изображения</Typography>
             <Box sx={{py: 5, display: 'flex', justifyContent: 'space-between'}}>
