@@ -84,9 +84,9 @@ export class ObjectsService {
         ImageModel
       ],
       where: options,
-      limit: limit,
+      limit: +limitPage,
       order: [orderFilter],
-      offset: offset
+      offset: +offset
     });
   }
 
