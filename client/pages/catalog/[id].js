@@ -96,8 +96,8 @@ export default function CatalogVariant({ data, dataPopular }) {
                 <div className="row mb30">
                     <div className="col-lg-7 col-xl-8">
                         <div className="single_property_title mt30-767">
-                            {data?.type == 'Квартира' ? <h2>{data?.rooms} комнат. {data?.type?.toLowerCase()}</h2> : <h2>{data?.type}</h2>}
-                            <p>{data?.city} {(data?.area != 'нет' && data?.area != '0') && ', район ' + data?.area}</p>
+                            {data?.type == 'Квартира' ? <h2>{data?.rooms} комнат. {data?.type?.toLowerCase()}</h2> : <h2>{data?.type} {data.square} м<sup>2</sup>, {data.place_square ? data.place_square + ' сот.' : null} {data.level && +data.level != 0 ? data.level + ' этаж' : null}</h2>}
+                            <p>{data?.city}{(data?.area != 'нет' && data?.area != '0') && ', район ' + data?.area}</p>
                         </div>
                         {/* <div className="dn db-991">
                             <div id="main2">
@@ -217,12 +217,10 @@ export default function CatalogVariant({ data, dataPopular }) {
                                         </div>
                                         <div className="col-md-6 col-lg-6 col-xl-4">
                                             <ul className="list-inline-item">
-                                                <li><p>Комнат :</p></li>
                                                 <li><p>Площадь участка :</p> </li>
                                                 <li><p>Этаж :</p> </li>
                                             </ul>
                                             <ul className="list-inline-item">
-                                                <li><p><span>{data.rooms}</span></p> </li>
                                                 <li><p><span>{data.place_square ? data.place_square + ' соток' : 'нет'}</span></p> </li>
                                                 <li><p><span>{data.level ? data.level : 'нет'}</span></p> </li>
                                             </ul>

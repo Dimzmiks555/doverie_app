@@ -4206,7 +4206,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   position: relative;
 }
 .feat_property .thumb img{
-  opacity: .6;
+  opacity: .9;
   object-fit: cover;
 }
 .feat_property .thumb .blog_tag{

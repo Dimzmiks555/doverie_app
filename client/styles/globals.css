@@ -43,6 +43,9 @@ html {
     transition: all .8s ease;
     transform: translate(360px, 0);
   }
+  h5 {
+    margin-bottom: 0 !important;
+  }
   img {
     max-width: 100%;}
   
