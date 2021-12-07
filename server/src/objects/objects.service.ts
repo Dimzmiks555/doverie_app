@@ -68,11 +68,11 @@ export class ObjectsService {
     let limitPage = 10
     let offset = 0
 
-    if (page) { offset = (limit * page) - limit}
+    if (page) { offset = (+limit * +page) - +limit}
 
     if (order) { orderFilter = ['price', order]}
     
-    if (limit) { limitPage = limit}
+    if (limit) { limitPage = +limit}
 
     
 
