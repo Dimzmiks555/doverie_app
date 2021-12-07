@@ -31,7 +31,7 @@ export default function Home({data, dataPopular}) {
 
 	const router = useRouter()
 	const [order, setOrder] = useState(router?.query?.order);
-	const [page, setPagination] = useState(1);
+	const [page, setPage] = useState(1);
 	
 
   useScript('/js/jquery-3.3.1.js');
@@ -68,6 +68,13 @@ export default function Home({data, dataPopular}) {
 
 	const handlePagination = (event, value) => {
 		setPage(value);
+		router.query.page = value
+		router.query.limit = 10
+
+        router.push({
+            pathname: '/catalog',
+            query: router.query
+        })
 	};
 
 
@@ -154,7 +161,7 @@ export default function Home({data, dataPopular}) {
 						}
 						
 						<div className="col-lg-12 mt20">
-							<Pagination color='success' count={data?.count / 10} page={page} onChange={handlePagination} />
+							<Pagination color='success' count={Math.ceil(data?.count / 10)} page={page} onChange={handlePagination} />
 						</div>
 					</div>
 				</div>
