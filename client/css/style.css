@@ -3216,7 +3216,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   top: 0;
 }
 .home3_home_content{
-  padding: 160px 0;
+  padding: 0px 0 20px;
   position: relative;
 }
 .home3_home_content h1{
@@ -3231,6 +3231,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   font-family: "Nunito";
   color: #ffffff;
   line-height: 1.2;
+  margin-bottom: 40px;
 }
 .home3_home_content a.popup_video_btn {
   background: #00B060;

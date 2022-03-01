@@ -112,7 +112,6 @@ function Contacts({objects, objectsFeatured}) {
 						<div class="content_list">
 							<h5>Телефон</h5>
 							<p>+7 900-930-6978 - Светлана Ивановна</p>
-							<p>+7 952-548-5722 - Людмила Тищенко</p>
 						</div>
 						<div class="content_list">
 							<h5>Электронная почта</h5>

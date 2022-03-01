@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import Script from 'next/script'
+
 export default function DarkFooter() {
     return (
         <>
@@ -38,7 +40,7 @@ export default function DarkFooter() {
                             
                         <img  style={{height: 50, marginRight: 10}} className="logo1 img-fluid" src="/images/header-logo2.svg" alt="header-logo.png"></img>
                         <h2 style={{color: '#fff', fontWeight: 'bold', marginTop: 0}}>Доверие
-                        <p style={{color: '#fff', fontSize: 10}}>АГЕНСТВО НЕДВИЖИМОСТИ</p></h2>
+                        <p style={{color: '#fff', fontSize: 10}}>АГЕНТСТВО НЕДВИЖИМОСТИ</p></h2>
                             {/* <h4>Подписаться</h4>
                             <form className="footer_mailchimp_form">
                                 <div className="form-row align-items-center">
@@ -67,19 +69,20 @@ export default function DarkFooter() {
                             <ul>
                                 <li className="list-inline-item"><Link href='/'><a href="#">Главная</a></Link></li>
                                 <li className="list-inline-item"><Link href='/about'><a href="#">О нас</a></Link></li>
-                                <li className="list-inline-item"><Link href='/gallery'><a href="#">Галерея</a></Link></li>
                                 <li className="list-inline-item"><Link href='/contacts'><a href="#">Контакты</a></Link></li>
                             </ul>
                         </div>
                     </div>
                     <div className="col-lg-6 col-xl-6">
                         <div className="copyright-widget text-right">
-                            <p>© 2020 Доверие - агенство недвижимости в городе Лиски</p>
+                            <p>© 2020 Доверие - агентство недвижимости в городе Лиски</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        
+    <Script type="text/javascript" src='https://callkeeper.ru/w/?3f65fa81'></Script>
         </>
     )
 }

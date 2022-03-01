@@ -6,7 +6,7 @@ import Header from '../components/Header/index.js';
 import MainFilter from '../components/MainFilter/index.js';
 import PopularVariantsSlider from '../components/PopularVariantsSlider/index.js';
 import useScript from '../hooks/useScript.js';
-
+import Link from 'next/link'
 
 function Home({objects, objectsFeatured}) {
 
@@ -32,6 +32,7 @@ function Home({objects, objectsFeatured}) {
 		<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 		<meta name="yandex-verification" content="6f2a022b8c8909fe" />
 		<meta name="keywords" content="купить дом, купить квартиру, доверие, лиски, агенство недвижимости, купить дом в лисках, купить квартиру в лисках, снять квартиру, снять дом, снять квартиру в лисках, снять квартиру лиски, купить дом лиски, продажа домов лиски, купить квартиру лиски, доверие лиски" />
+		
 	</Head>
 	{/* <!-- Main Header Nav --> */}
 	<Header/>
@@ -50,11 +51,6 @@ function Home({objects, objectsFeatured}) {
 						<h1>Найди свой новый дом!</h1>
 						<h4>Лучший сайт по поиску недвижимости в городе Лиски.</h4>
 					</div>
-				</div>
-				<div className="col-lg-4">
-					{/* <div className="home3_home_content">
-						<a className="popup_video_btn popup-iframe popup-youtube" href="https://www.youtube.com/watch?v=R7xbhKIiw4Y"><i className="flaticon-play"></i></a>
-					</div> */}
 				</div>
 			</div>
 			<div className="row">
@@ -78,7 +74,7 @@ function Home({objects, objectsFeatured}) {
 					<div className="search_smart_property text-center">
 						<h2>Ищи умнее, откуда угодно</h2>
 						<p>Найдите то, что Вам нужно из нашей большой базы объектов недвижимости</p>
-						<button className="btn ssp_btn">Искать</button>
+						<Link href="/catalog?type=Квартира&kind=Продажа&rooms=1,2,3,4,5,6&priceFrom=null&priceTo=null"><button className="btn ssp_btn"><a style={{color: 'inherit'}}>Найти</a></button></Link>
 					</div>
 				</div>
 			</div>
@@ -232,6 +228,7 @@ function Home({objects, objectsFeatured}) {
 
 	<Footer/>
 <a className="scrollToHome text-thm3" href="#"><i className="flaticon-arrows"></i></a>
+
 </div>
   )
 }

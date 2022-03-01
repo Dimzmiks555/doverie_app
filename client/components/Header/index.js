@@ -19,26 +19,27 @@ export default function Header() {
         <header className="header-nav menu_style_home_one style2 home3 navbar-scrolltofixed stricky main-menu">
                 <div className="container-fluid p0">
                     {/* <!-- Ace Responsive Menu --> */}
-                    <nav>
+                    <nav style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', minWidth: '100%'}}>
                         {/* <!-- Menu Toggle btn--> */}
-                        <div className="menu-toggle">
-                            <img className="nav_logo_img img-fluid" src="images/header-logo.png" alt="header-logo.png"></img>
-                            <button type="button" id="menu-btn">
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                            </button>
-                        </div>
                         <Link href='/'>
                             <a href="/" className="navbar_brand float-left dn-smd">
                                 <img  style={{height: 50}} className="logo1 img-fluid" src="/images/header-logo2.svg" alt="header-logo.png"></img>
                                 <img  style={{height: 50}} className="logo2 img-fluid" src="/images/header-logo2.svg" alt="header-logo2.png"></img>
-                                <h2 style={{color: '#229922', fontWeight: 'bold', marginLeft: 10}}>Доверие <p style={{color: '#333', fontSize: 10}}>АГЕНСТВО НЕДВИЖИМОСТИ</p></h2>
+                                <h2 style={{color: '#229922', fontWeight: 'bold', marginLeft: 10}}>Доверие <p style={{color: '#333', fontSize: 10, width: 200}}>АГЕНТСТВО НЕДВИЖИМОСТИ</p></h2>
                             </a>
                         </Link>
+                        <div>
+                            <h6 style={{marginBottom: 2, color: '#00B060', fontWeight: 600}}>Лиски</h6>
+                            <h4 style={{marginBottom: 0, color: '#444', fontWeight: 600}}><a>Коммунистическая, д. 12а, Рынок</a></h4>
+                        </div>
+                        <div>
+                            <h6 style={{marginBottom: 2, color: '#00B060', fontWeight: 600}}>Режим работы с 10:00 до 18:00</h6>
+                            <h4 style={{marginBottom: 0, color: '#444', fontWeight: 600}}><a href='tel:89009306978'>+7 900-930-6978</a></h4>
+                        </div>
                         {/* <!-- Responsive Menu Structure-->
+                        
                         <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) --> */}
-                        <ul id="respMenu" className="ace-responsive-menu text-right" data-menu-style="horizontal">
+                        <ul id="respMenu" className="ace-responsive-menu " data-menu-style="horizontal">
                             <li>
                                 <Link href='/'><a href="#">Главная</a></Link>
                                 {/* <!-- Level Two--> */}
@@ -47,10 +48,6 @@ export default function Header() {
                             
                             <li>
                                 <Link href='/about'><a href="#"> О нас</a></Link>
-                                
-                            </li>
-                            <li>
-                                <Link href='/gallery'><a href="#"> Галерея</a></Link>
                                 
                             </li>
                             <li className="last">
