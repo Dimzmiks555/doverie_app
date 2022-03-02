@@ -23,17 +23,17 @@ import { GalleryModel } from './gallery/entities/gallery.entity';
       username: 'root',
       password: 'root',
       database: 'doverie',
-      models: [ObjectsModel, ImageModel, GalleryModel ],
+      models: [ObjectsModel, ImageModel, GalleryModel],
       autoLoadModels: true,
       synchronize: true,
       sync: { alter: true },
     }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname,'..', 'uploads'),
+      rootPath: join(__dirname, '..', 'uploads'),
     }),
     ObjectsModule,
     ImagesModule,
-    GalleryModule
+    GalleryModule,
   ],
 })
 export class AppModule {}
