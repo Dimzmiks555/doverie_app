@@ -7,6 +7,7 @@ import MainFilter from '../components/MainFilter/index.js';
 import PopularVariantsSlider from '../components/PopularVariantsSlider/index.js';
 import useScript from '../hooks/useScript.js';
 import Link from 'next/link'
+import { Box } from '@mui/material';
 
 function Home({objects, objectsFeatured}) {
 
@@ -65,6 +66,10 @@ function Home({objects, objectsFeatured}) {
 	
 	{/* <!-- Property Cities --> */}
 	<PopularVariantsSlider objects={objectsFeatured}/>
+
+	<Box sx={{p: 10, pt: 0}}>
+		<img src='infographics.png'></img>
+	</Box>
 
 	{/* <!-- Property Search --> */}
 	<section id="property-search" className="property-search bg-img4">
