@@ -67,7 +67,7 @@ function Home({objects, objectsFeatured}) {
 	{/* <!-- Property Cities --> */}
 	<PopularVariantsSlider objects={objectsFeatured}/>
 
-	<Box sx={{p: 10, pt: 0}}>
+	<Box sx={{px: 20,pb: 10, pt: 0}}>
 		<img src='infographics.png'></img>
 	</Box>
 
