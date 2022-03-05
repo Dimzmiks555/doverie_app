@@ -67,8 +67,12 @@ function Home({objects, objectsFeatured}) {
 	{/* <!-- Property Cities --> */}
 	<PopularVariantsSlider objects={objectsFeatured}/>
 
-	<Box sx={{px: 20,pb: 10, pt: 0}}>
-		<img src='infographics.png'></img>
+	<Box className='infograph' >
+		<img src='1.png'></img>
+		<img src='2.png'></img>
+		<img src='3.png'></img>
+		<img src='4.png'></img>
+		<img src='5.png'></img>
 	</Box>
 
 	{/* <!-- Property Search --> */}

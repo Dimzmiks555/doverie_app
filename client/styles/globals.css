@@ -1,6 +1,71 @@
 
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,400i,600,700&amp;display=swap);
 
+@media only screen and (max-width: 1280px) {
+  /* styles for browsers larger than 960px; */
+  
+  header h4 {
+    font-size: 16px !important;
+  }
+}
+@media only screen and (max-width: 1160px) {
+  /* styles for browsers larger than 960px; */
+  
+  header ul li a{
+    font-size: 10px !important;
+  }
+  .navbar_brand {
+    margin-right: 0 !important;
+  }
+  header h6 {
+    font-size: 12px !important;
+  }
+}
+@media only screen and (max-width: 990px) {
+  /* styles for browsers larger than 960px; */
+  
+  nav {
+    flex-direction: column !important;
+  }
+  nav div {
+    text-align: center;
+  }
+  header ul li a{
+    font-size: 16px !important;
+  }
+}
+@media only screen and (max-width: 625px) {
+  /* styles for browsers larger than 960px; */
+ #feature-property .main-title a {
+   float: none !important;
+   display: block;
+ }
+ .infograph {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 40px 30px !important;
+    justify-content: space-between;
+  }
+  .infograph img {
+    margin-bottom: 20px;
+    width: 40% !important;
+    height: auto;
+    object-fit: scale-down;
+  }
+  .infograph img:nth-child(2) {
+    display: none !important;
+  }
+}
+.infograph {
+  display: flex;
+  padding: 0 140px 30px;
+  justify-content: space-between;
+}
+.infograph img {
+  width: 14%;
+  height: auto;
+  object-fit: scale-down;
+}
 html {
     font-size: 100%;
     /* overflow-y: scroll !important; */

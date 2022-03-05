@@ -14,6 +14,7 @@ export default function Header() {
             href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,700&amp;display=swap"
             rel="stylesheet"
             />
+            <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         </Head>
         <YMInitializer accounts={[86750009]} />
         <header className="header-nav menu_style_home_one style2 home3 navbar-scrolltofixed stricky main-menu">
@@ -29,7 +30,7 @@ export default function Header() {
                             </a>
                         </Link>
                         <div>
-                            <h6 style={{marginBottom: 2, color: '#00B060', fontWeight: 600}}>Лиски</h6>
+                            <h6 style={{marginBottom: 2, color: '#00B060', fontWeight: 600}}>Воронежская обл., г. Лиски</h6>
                             <h4 style={{marginBottom: 0, color: '#444', fontWeight: 600}}><a>Коммунистическая, д. 12а, Рынок</a></h4>
                         </div>
                         <div>
