@@ -115,7 +115,7 @@ function Contacts({objects, objectsFeatured}) {
 						</div>
 						<div class="content_list">
 							<h5>Электронная почта</h5>
-							<p><a href="https://grandetest.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="61080f070e2107080f05090e1412044f020e0c">anodaday@yandex.ru</a></p>
+							<p><a href="https://grandetest.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="61080f070e2107080f05090e1412044f020e0c">doverietihonova@yandex.ru</a></p>
 						</div>
 					</div>
 				</div>

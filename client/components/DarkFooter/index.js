@@ -27,7 +27,7 @@ export default function DarkFooter() {
                         <div className="footer_contact_widget">
                             <h4>Контакты</h4>
                             <ul className="list-unstyled">
-                                <li><a href="#"><span className="__cf_email__" data-cfemail="cfa6a1a9a08fa9a6a1aba7a0babcaae1aca0a2">anodaday@yandex.ru</span></a></li>
+                                <li><a href="#"><span className="__cf_email__" data-cfemail="cfa6a1a9a08fa9a6a1aba7a0babcaae1aca0a2">doverietihonova@yandex.ru</span></a></li>
                                 <li><a href="#">город Лиски, ул. Коммунистическая,</a></li>
                                 <li><a href="#">д. 12а, Рынок.</a></li>
                                 <li><a href="#">+7 900-930-6978</a></li>

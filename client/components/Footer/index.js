@@ -26,7 +26,7 @@ export default function Footer() {
                         <div className="footer_contact_widget home3">
                             <h4>Контакты</h4>
                             <ul className="list-unstyled">
-                                <li><a href="#"><span className="__cf_email__" data-cfemail="9bf2f5fdf4dbfdf2f5fff3f4eee8feb5f8f4f6">anodaday@yandex.ru</span></a></li>
+                                <li><a href="#"><span className="__cf_email__" data-cfemail="9bf2f5fdf4dbfdf2f5fff3f4eee8feb5f8f4f6">doverietihonova@yandex.ru</span></a></li>
                                 <li><a href="#">город Лиски, улица Коммунистическая</a></li>
                                 <li><a href="#">д. 12а, Рынок.</a></li>
                                 <li><a href="#">+7 900-930-6978</a></li>

@@ -33,6 +33,18 @@
   header ul li a{
     font-size: 16px !important;
   }
+  
+  .infograph {
+    display: flex;
+    padding: 0 30px 60px !important;
+    justify-content: space-between;
+  }
+  .infograph img {
+    margin-bottom: 20px;
+    width: 45% !important;
+    height: 120px !important;
+    object-fit: scale-down;
+  }
 }
 @media only screen and (max-width: 625px) {
   /* styles for browsers larger than 960px; */
@@ -48,8 +60,8 @@
   }
   .infograph img {
     margin-bottom: 20px;
-    width: 40% !important;
-    height: auto;
+    width: 45% !important;
+    height: 200px !important;
     object-fit: scale-down;
   }
   .infograph img:nth-child(2) {
